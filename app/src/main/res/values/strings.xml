@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">PflanzenMemorie</string>
     <string name="begrüßung">Hallo Pflanzenliebhaber</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="thema1">Bäume</string>
+    <string name="thema2">Blumen</string>
+    <string name="thema3">Büsche</string>
+    <string name="closed">hier nix sehen</string>
+    <string name="opened_txt">hier txt zu sehen</string>
+    <string name="opened_pic">hier pic zu sehen</string>
+    <string name="pic_change">drehe bild um</string>
+    <string name="txt_change">drehe text um</string>
 </resources>
