@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">Pflanzenbestimmung</string>
     <string name="begrüßung">Hallo Pflanzenliebhaber</string>
+    <string name="userName">Nutzername</string>
+    <string name="userPassword">Passwort</string>
+    <string name="Login">Anmelden</string>
+    <string name="actuallQuiz">Gesetztes Quiz starten</string>
+    <string name="ownQuiz">Zufälliges Quiz starten</string>
+    <string name="statistic">Statistik</string>
+    <string name="Logout">Abmelden</string>
+    <string name="back">Zurück</string>
+    <string name="fewestErrors">Pflanze mit den wenigsten Fehlern:</string>
+    <string name="errorRate">Fehlerquote:</string>
+    <string name="averageTime">Durchschnitlliche Zeit:</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

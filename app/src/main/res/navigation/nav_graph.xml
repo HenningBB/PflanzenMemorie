@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/login">
+
+    <fragment
+        android:id="@+id/login"
+        android:name="hkbb.de.pflanzenmemorie.Login"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_login_to_mainMenu"
+            app:destination="@id/mainMenu" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainMenu"
+        android:name="hkbb.de.pflanzenmemorie.mainMenu"
+        android:label="fragment_main_menu"
+        tools:layout="@layout/fragment_main_menu" >
+        <action
+            android:id="@+id/action_mainMenu_to_quizPicture"
+            app:destination="@id/quizPicture" />
+        <action
+            android:id="@+id/action_mainMenu_to_statistic"
+            app:destination="@id/statistic" />
+    </fragment>
+    <fragment
+        android:id="@+id/quizPicture"
+        android:name="hkbb.de.pflanzenmemorie.quizPicture"
+        android:label="fragment_quiz_picture"
+        tools:layout="@layout/fragment_quiz_picture" >
+        <action
+            android:id="@+id/action_quizPicture_to_quizQuestion"
+            app:destination="@id/quizQuestion" />
+    </fragment>
+    <fragment
+        android:id="@+id/quizQuestion"
+        android:name="hkbb.de.pflanzenmemorie.quizQuestion"
+        android:label="fragment_quiz_question"
+        tools:layout="@layout/fragment_quiz_question" >
+        <action
+            android:id="@+id/action_quizQuestion_to_quizPicture"
+            app:destination="@id/quizPicture" />
+        <action
+            android:id="@+id/action_quizQuestion_to_mainMenu"
+            app:destination="@id/mainMenu" />
+    </fragment>
+    <fragment
+        android:id="@+id/statistic"
+        android:name="hkbb.de.pflanzenmemorie.statistic"
+        android:label="fragment_statistic"
+        tools:layout="@layout/fragment_statistic" />
+</navigation>
