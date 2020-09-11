@@ -12,6 +12,7 @@
     <string name="fewestErrors">Pflanze mit den wenigsten Fehlern:</string>
     <string name="errorRate">Fehlerquote:</string>
     <string name="averageTime">Durchschnitlliche Zeit:</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="next">Weiter</string>
+    <string name="totalTime">Gesammt gebrauchte Zeit:</string>
+    <string name="backToMenu">Zurück zum Menü</string>
 </resources>

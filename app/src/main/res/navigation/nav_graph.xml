@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/login">
+    app:startDestination="@id/quizQuestion">
 
     <fragment
         android:id="@+id/login"
@@ -46,10 +46,18 @@
         <action
             android:id="@+id/action_quizQuestion_to_mainMenu"
             app:destination="@id/mainMenu" />
+        <action
+            android:id="@+id/action_quizQuestion_to_endStatistica"
+            app:destination="@id/endStatistica" />
     </fragment>
     <fragment
         android:id="@+id/statistic"
         android:name="hkbb.de.pflanzenmemorie.statistic"
         android:label="fragment_statistic"
         tools:layout="@layout/fragment_statistic" />
+    <fragment
+        android:id="@+id/endStatistica"
+        android:name="hkbb.de.pflanzenmemorie.endStatistica"
+        android:label="fragment_end_statistica"
+        tools:layout="@layout/fragment_end_statistica" />
 </navigation>
