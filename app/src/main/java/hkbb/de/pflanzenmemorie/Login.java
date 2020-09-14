@@ -3,6 +3,7 @@ package hkbb.de.pflanzenmemorie;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -24,13 +25,20 @@ public class Login extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Button btn_login = view.findViewById(R.id.login_btn);
-        TextView txt_username = view.findViewById(R.id.userName_txt);
-        TextView txt_pw = view.findViewById(R.id.userPassword_txt);
+        final TextView txt_username = view.findViewById(R.id.userName_txt);
+        final TextView txt_pw = view.findViewById(R.id.userPassword_txt);
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                String user = txt_username.getText().toString();
+                String pw = txt_pw.getText().toString();
+                if (pw.equals("") || user.equals("")) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                    builder.setMessage("Fehler: Die Textfelder dürfen nicht leer sein!");
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+                }
             }
         });
     }
