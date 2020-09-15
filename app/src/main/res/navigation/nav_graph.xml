@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_mainMenu_to_statistic"
             app:destination="@id/statistic" />
+        <action
+            android:id="@+id/action_mainMenu_to_login"
+            app:destination="@id/login" />
     </fragment>
     <fragment
         android:id="@+id/quizPicture"
