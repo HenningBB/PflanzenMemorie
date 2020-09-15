@@ -6,6 +6,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,7 +34,7 @@ public class Login extends Fragment {
         final AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
         builder.setMessage("Fehler: Die Textfelder dürfen nicht leer sein!");
         final AlertDialog dialog = builder.create();
-
+        final NavController nav = NavHostFragment.findNavController(Login.this);
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,7 +44,7 @@ public class Login extends Fragment {
                     dialog.show();
                 }
                 else{
-                    new ActivityDataSource(builder).execute(user,pw);
+                    new ActivityDataSource(builder,nav).execute(user,pw);
                 }
             }
         });
