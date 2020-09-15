@@ -3,6 +3,12 @@ package hkbb.de.pflanzenmemorie;
 import android.app.AlertDialog;
 import android.os.AsyncTask;
 
+import androidx.navigation.NavController;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,19 +21,21 @@ public class ActivityDataSource extends AsyncTask<String, Void, String> {
     public static final String POST_PARAM_KEYVALUE_SEPARATOR = "=";
     public static final String POST_PARAM_SEPARATOR = "&";
     public static final String DESTINATION_METHOD = "login";
-    public static final String USERVALUE="User";
-    public static final String PWVALUE="PW";
+    public static final String USERVALUE = "User";
+    public static final String PWVALUE = "PW";
     private AlertDialog.Builder builder;
     private URLConnection conn;
+    private NavController nav;
 
-    public ActivityDataSource(AlertDialog.Builder alertDialog) {
+    public ActivityDataSource(AlertDialog.Builder alertDialog, NavController nav) {
         this.builder = alertDialog;
+        this.nav = nav;
     }
 
     @Override
     protected String doInBackground(String... strings) {
         try {
-            openConnection(strings[0],strings[1]);
+            openConnection(strings[0], strings[1]);
             return readResult();
         } catch (IOException e) {
             e.printStackTrace();
@@ -35,19 +43,19 @@ public class ActivityDataSource extends AsyncTask<String, Void, String> {
         return null;
     }
 
-    private void openConnection(String user,String pw) throws IOException {
+    private void openConnection(String user, String pw) throws IOException {
         StringBuffer dataBuffer = new StringBuffer();
         dataBuffer.append(URLEncoder.encode("method", "UTF-8"));
         dataBuffer.append(POST_PARAM_KEYVALUE_SEPARATOR);
         dataBuffer.append(URLEncoder.encode(DESTINATION_METHOD, "UTF-8"));
         dataBuffer.append(POST_PARAM_SEPARATOR);
-        dataBuffer.append(URLEncoder.encode(USERVALUE,"UTF-8"));
+        dataBuffer.append(URLEncoder.encode(USERVALUE, "UTF-8"));
         dataBuffer.append(POST_PARAM_KEYVALUE_SEPARATOR);
-        dataBuffer.append(URLEncoder.encode(user,"UTF-8"));
+        dataBuffer.append(URLEncoder.encode(user, "UTF-8"));
         dataBuffer.append(POST_PARAM_SEPARATOR);
-        dataBuffer.append(URLEncoder.encode(PWVALUE,"UTF-8"));
+        dataBuffer.append(URLEncoder.encode(PWVALUE, "UTF-8"));
         dataBuffer.append(POST_PARAM_KEYVALUE_SEPARATOR);
-        dataBuffer.append(URLEncoder.encode(pw,"UTF-8"));
+        dataBuffer.append(URLEncoder.encode(pw, "UTF-8"));
         //Adresse der PHP Schnittstelle für die Verbindung zur MySQL Datenbank
         URL url = new URL("http://10.33.111.1/Pflanzenbestimmung/logintest.php");
         conn = url.openConnection();
@@ -64,7 +72,7 @@ public class ActivityDataSource extends AsyncTask<String, Void, String> {
         StringBuilder sb = new StringBuilder();
         String line = null;
         //Solange Daten bereitstehen werden diese gelesen.
-        while ((line=reader.readLine()) != null){
+        while ((line = reader.readLine()) != null) {
             sb.append(line);
         }
         return sb.toString();
@@ -72,9 +80,17 @@ public class ActivityDataSource extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
-        if ( (!isBlank(result))) {
-            builder.setMessage(result);
+        try {
 
+
+            JSONArray object = new JSONArray(result);
+
+            builder.setMessage(result);
+            nav.navigate(R.id.action_login_to_mainMenu);
+
+        } catch (JSONException e) {
+            builder.setMessage("Benutzername oder Passwort ist falsch!");
+            e.printStackTrace();
         }
         final AlertDialog alertDialog = builder.create();
         alertDialog.show();
