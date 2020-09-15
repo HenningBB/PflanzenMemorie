@@ -81,10 +81,7 @@ public class ActivityDataSource extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String result) {
         try {
-
-
             JSONArray object = new JSONArray(result);
-
             builder.setMessage(result);
             nav.navigate(R.id.action_login_to_mainMenu);
 
