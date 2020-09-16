@@ -58,6 +58,7 @@ public class ActivityDataSource extends AsyncTask<String, Void, String> {
         dataBuffer.append(URLEncoder.encode(pw, "UTF-8"));
         //Adresse der PHP Schnittstelle für die Verbindung zur MySQL Datenbank
         URL url = new URL("http://10.33.111.1/Pflanzenbestimmung/logintest.php");
+        //URL url = new URL("http://10.33.11.142/Karteigarten/dbSchnittstelle.php");
         conn = url.openConnection();
         conn.setDoOutput(true);
         OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
