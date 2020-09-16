@@ -23,13 +23,19 @@ public class mainMenu extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Button btn_abmelden= view.findViewById(R.id.menuLogout_btn);
+        Button btn_abmelden = view.findViewById(R.id.menuLogout_btn);
         btn_abmelden.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(mainMenu.this).navigate(R.id.action_mainMenu_to_login);
             }
         });
-
+        Button btnRandomQuiz = view.findViewById(R.id.ownQuiz_btn);
+        btnRandomQuiz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(mainMenu.this).navigate(R.id.action_mainMenu_to_quizPicture);
+            }
+        });
     }
 }
