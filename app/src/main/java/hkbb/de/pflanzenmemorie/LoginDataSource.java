@@ -42,7 +42,7 @@ public class LoginDataSource extends AsyncTask<String, Void, String> {
     @Override
     protected String doInBackground(String... strings) {
         try {
-            if (DESTINATION_METHOD == "login") {
+            if (DESTINATION_METHOD.equals("login")) {
                 OpenConnection(strings[0], strings[1]);
                 return readResult();
             }
@@ -53,7 +53,7 @@ public class LoginDataSource extends AsyncTask<String, Void, String> {
     }
 
     private void OpenConnection(String user, String pw) throws IOException {
-        String salt = user.substring(user.length() - 3, user.length());
+        String salt = user.substring(user.length() - 3);
         pw += salt;
         MessageDigest digest = null;
         try {
@@ -61,6 +61,7 @@ public class LoginDataSource extends AsyncTask<String, Void, String> {
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
+        assert digest != null;
         byte[] hash = digest.digest(pw.getBytes(StandardCharsets.UTF_8));
         pw = bin2hex(hash);
 
@@ -92,7 +93,7 @@ public class LoginDataSource extends AsyncTask<String, Void, String> {
         //Lesen der Rückgabewerte vom Server
         BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
         StringBuilder sb = new StringBuilder();
-        String line = null;
+        String line;
         //Solange Daten bereitstehen werden diese gelesen.
         while ((line = reader.readLine()) != null) {
             sb.append(line);
@@ -116,10 +117,6 @@ public class LoginDataSource extends AsyncTask<String, Void, String> {
         }
         final AlertDialog alertDialog = builder.create();
         alertDialog.show();
-    }
-
-    private boolean isBlank(String value) {
-        return value == null || value.trim().isEmpty();
     }
 
     //Hash-Funktion
