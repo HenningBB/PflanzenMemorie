@@ -54,7 +54,11 @@
         android:id="@+id/statistic"
         android:name="hkbb.de.pflanzenmemorie.statistic"
         android:label="fragment_statistic"
-        tools:layout="@layout/fragment_statistic" />
+        tools:layout="@layout/fragment_statistic" >
+        <action
+            android:id="@+id/action_statistic_to_mainMenu"
+            app:destination="@id/mainMenu" />
+    </fragment>
     <fragment
         android:id="@+id/endStatistica"
         android:name="hkbb.de.pflanzenmemorie.endStatistica"
