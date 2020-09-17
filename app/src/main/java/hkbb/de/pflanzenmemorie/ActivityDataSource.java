@@ -7,7 +7,6 @@ import androidx.navigation.NavController;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -44,7 +43,7 @@ public class ActivityDataSource extends AsyncTask<String, Void, String> {
     protected String doInBackground(String... strings) {
         try {
             if (DESTINATION_METHOD == "login") {
-                openConnection(strings[0], strings[1]);
+                LoginConnection(strings[0], strings[1]);
                 return readResult();
             }
         } catch (IOException e) {
@@ -53,7 +52,7 @@ public class ActivityDataSource extends AsyncTask<String, Void, String> {
         return null;
     }
 
-    private void openConnection(String user, String pw) throws IOException {
+    private void LoginConnection(String user, String pw) throws IOException {
         String salt = user.substring(user.length() - 3, user.length());
         pw += salt;
         MessageDigest digest = null;
