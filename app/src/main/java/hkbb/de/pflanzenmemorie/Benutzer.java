@@ -1,18 +1,24 @@
 package hkbb.de.pflanzenmemorie;
 
 public class Benutzer {
+    String id;
     String name;
     String vorname;
     String ausbildung;
     String fachrichtung;
     int pruefung;
 
-    public Benutzer(String name, String vorname, String ausbildung, String fachrichtung, int pruefung) {
+    public Benutzer(String id, String name, String vorname, String ausbildung, String fachrichtung, int pruefung) {
+        this.id = id;
         this.name = name;
         this.vorname = vorname;
         this.ausbildung = ausbildung;
         this.fachrichtung = fachrichtung;
         this.pruefung = pruefung;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getName() {
