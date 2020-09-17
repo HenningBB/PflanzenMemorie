@@ -7,7 +7,6 @@ import androidx.navigation.NavController;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,7 +19,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class ActivityDataSource extends AsyncTask<String, Void, String> {
+public class LoginDataSource extends AsyncTask<String, Void, String> {
     public static final String POST_PARAM_KEYVALUE_SEPARATOR = "=";
     public static final String POST_PARAM_SEPARATOR = "&";
     public static String DESTINATION_METHOD = "login";
@@ -30,12 +29,12 @@ public class ActivityDataSource extends AsyncTask<String, Void, String> {
     private URLConnection conn;
     private NavController nav;
 
-    public ActivityDataSource(AlertDialog.Builder alertDialog, NavController nav) {
+    public LoginDataSource(AlertDialog.Builder alertDialog, NavController nav) {
         this.builder = alertDialog;
         this.nav = nav;
     }
 
-    public ActivityDataSource(NavController nav, String method) {
+    public LoginDataSource(NavController nav, String method) {
         this.nav = nav;
         DESTINATION_METHOD = method;
     }
@@ -44,7 +43,7 @@ public class ActivityDataSource extends AsyncTask<String, Void, String> {
     protected String doInBackground(String... strings) {
         try {
             if (DESTINATION_METHOD == "login") {
-                LoginConnection(strings[0], strings[1]);
+                OpenConnection(strings[0], strings[1]);
                 return readResult();
             }
         } catch (IOException e) {
@@ -53,7 +52,7 @@ public class ActivityDataSource extends AsyncTask<String, Void, String> {
         return null;
     }
 
-    private void LoginConnection(String user, String pw) throws IOException {
+    private void OpenConnection(String user, String pw) throws IOException {
         String salt = user.substring(user.length() - 3, user.length());
         pw += salt;
         MessageDigest digest = null;
@@ -111,7 +110,6 @@ public class ActivityDataSource extends AsyncTask<String, Void, String> {
                     object.getJSONObject(0).getString("ausbildung"),
                     object.getJSONObject(0).getString("fachrichtung"), 0);
             nav.navigate(R.id.action_login_to_mainMenu);
-
         } catch (JSONException e) {
             builder.setMessage("Benutzername oder Passwort ist falsch!");
             e.printStackTrace();

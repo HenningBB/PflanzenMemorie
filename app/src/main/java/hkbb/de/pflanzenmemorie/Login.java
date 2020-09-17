@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 
 public class Login extends Fragment {
@@ -44,7 +43,7 @@ public class Login extends Fragment {
                     dialog.show();
                 }
                 else{
-                    new ActivityDataSource(builder,nav).execute(user,pw);
+                    new LoginDataSource(builder,nav).execute(user,pw);
                 }
             }
         });
