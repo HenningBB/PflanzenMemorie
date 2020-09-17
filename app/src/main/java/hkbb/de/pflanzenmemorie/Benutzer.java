@@ -6,7 +6,7 @@ public class Benutzer {
     String vorname;
     String ausbildung;
     String fachrichtung;
-    int pruefunger;
+    int pruefung;
 
     public Benutzer(String id, String name, String vorname, String ausbildung, String fachrichtung, int pruefung) {
         this.id = id;
