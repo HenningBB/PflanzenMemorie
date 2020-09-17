@@ -6,9 +6,9 @@ public class Benutzer {
     String vorname;
     String ausbildung;
     String fachrichtung;
-    int pruefung;
+    String pruefung;
 
-    public Benutzer(String id, String name, String vorname, String ausbildung, String fachrichtung, int pruefung) {
+    public Benutzer(String id, String name, String vorname, String ausbildung, String fachrichtung, String pruefung) {
         this.id = id;
         this.name = name;
         this.vorname = vorname;
@@ -37,7 +37,7 @@ public class Benutzer {
         return fachrichtung;
     }
 
-    public int getPruefung() {
+    public String getPruefung() {
         return pruefung;
     }
 }
