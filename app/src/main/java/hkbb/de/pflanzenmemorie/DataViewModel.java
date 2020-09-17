@@ -10,6 +10,7 @@ public class DataViewModel extends ViewModel {
     private MutableLiveData<Pflanze> Karte = new MutableLiveData<>();
     private MutableLiveData<List<Pflanze>> Kasten = new MutableLiveData<>();
     private MutableLiveData<List<Pflanze>> Quiz = new MutableLiveData<>();
+    private MutableLiveData<Benutzer> Benutzter = new MutableLiveData<>();
 
     public void setKarte(Pflanze karte) {
         Karte.setValue(karte);
@@ -23,6 +24,10 @@ public class DataViewModel extends ViewModel {
         Quiz.setValue(quiz);
     }
 
+    public void setBenutzer(Benutzer benutzer) {
+        Benutzter.setValue(benutzer);
+    }
+
     public LiveData<Pflanze> getKarte() {
         return Karte;
     }
@@ -33,5 +38,9 @@ public class DataViewModel extends ViewModel {
 
     public LiveData<List<Pflanze>> getQuiz() {
         return Quiz;
+    }
+
+    public LiveData<Benutzer> getBenutzer() {
+        return Benutzter;
     }
 }

@@ -7,6 +7,7 @@ import androidx.navigation.NavController;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -105,6 +106,10 @@ public class ActivityDataSource extends AsyncTask<String, Void, String> {
         try {
             JSONArray object = new JSONArray(result);
             builder.setMessage(result);
+            Benutzer benutzer = new Benutzer(object.getJSONObject(0).getString("name"),
+                    object.getJSONObject(0).getString("vorname"),
+                    object.getJSONObject(0).getString("ausbildung"),
+                    object.getJSONObject(0).getString("fachrichtung"), 0);
             nav.navigate(R.id.action_login_to_mainMenu);
 
         } catch (JSONException e) {
