@@ -28,10 +28,12 @@ public class LoginDataSource extends AsyncTask<String, Void, String> {
     private AlertDialog.Builder builder;
     private URLConnection conn;
     private NavController nav;
+    private DataViewModel model;
 
-    public LoginDataSource(AlertDialog.Builder alertDialog, NavController nav) {
+    public LoginDataSource(AlertDialog.Builder alertDialog, NavController nav, DataViewModel model) {
         this.builder = alertDialog;
         this.nav = nav;
+        this.model = model;
     }
 
     public LoginDataSource(NavController nav, String method) {
@@ -78,8 +80,7 @@ public class LoginDataSource extends AsyncTask<String, Void, String> {
         dataBuffer.append(POST_PARAM_KEYVALUE_SEPARATOR);
         dataBuffer.append(URLEncoder.encode(pw, "UTF-8"));
         //Adresse der PHP Schnittstelle für die Verbindung zur MySQL Datenbank
-        URL url = new URL("http://10.33.11.142/API/dbSchnittstelle.php"); //Steven, offiziel?
-        //URL url = new URL("http://10.33.156.144/dbSchnittstelle.php"); //Dirk
+        URL url = new URL("http://10.33.11.142/API/dbSchnittstelle.php"); //Steven, offiziel!
         conn = url.openConnection();
         conn.setDoOutput(true);
         OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
@@ -109,6 +110,7 @@ public class LoginDataSource extends AsyncTask<String, Void, String> {
                     object.getJSONObject(0).getString("vorname"),
                     object.getJSONObject(0).getString("ausbildung"),
                     object.getJSONObject(0).getString("fachrichtung"), 0);
+            model.setBenutzer(benutzer);
             nav.navigate(R.id.action_login_to_mainMenu);
         } catch (JSONException e) {
             builder.setMessage("Benutzername oder Passwort ist falsch!");

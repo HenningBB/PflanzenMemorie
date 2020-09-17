@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
@@ -27,6 +28,7 @@ public class Login extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        final DataViewModel model = new ViewModelProvider(requireActivity()).get(DataViewModel.class);
         Button btn_login = view.findViewById(R.id.login_btn);
         final EditText txt_username = view.findViewById(R.id.userName_txt);
         final EditText txt_pw = view.findViewById(R.id.userPassword_txt);
@@ -43,7 +45,7 @@ public class Login extends Fragment {
                     dialog.show();
                 }
                 else{
-                    new LoginDataSource(builder,nav).execute(user,pw);
+                    new LoginDataSource(builder,nav,model).execute(user,pw);
                 }
             }
         });
