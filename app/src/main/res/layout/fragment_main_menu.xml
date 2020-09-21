@@ -16,10 +16,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:text="@string/actuallQuiz"
-            app:layout_constraintBottom_toTopOf="@+id/ownQuiz_btn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/switch1" />
 
         <Button
             android:id="@+id/ownQuiz_btn"
@@ -27,7 +26,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:text="@string/ownQuiz"
-            app:layout_constraintBottom_toTopOf="@+id/statistic_btn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/actuallQuiz_btn" />
@@ -38,7 +36,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:text="@string/statistic"
-            app:layout_constraintBottom_toTopOf="@+id/menuLogout_btn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ownQuiz_btn" />
@@ -48,12 +45,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:layout_marginBottom="32dp"
             android:text="@string/Logout"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/statistic_btn" />
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/oneMinTimer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
