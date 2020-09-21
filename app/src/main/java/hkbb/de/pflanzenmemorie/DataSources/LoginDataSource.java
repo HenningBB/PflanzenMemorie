@@ -1,4 +1,4 @@
-package hkbb.de.pflanzenmemorie;
+package hkbb.de.pflanzenmemorie.DataSources;
 
 import android.app.AlertDialog;
 import android.os.AsyncTask;
@@ -18,6 +18,10 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+
+import hkbb.de.pflanzenmemorie.DataViewModel;
+import hkbb.de.pflanzenmemorie.Models.Benutzer;
+import hkbb.de.pflanzenmemorie.R;
 
 public class LoginDataSource extends AsyncTask<String, Void, String> {
     public static final String POST_PARAM_KEYVALUE_SEPARATOR = "=";
@@ -106,10 +110,12 @@ public class LoginDataSource extends AsyncTask<String, Void, String> {
         try {
             JSONArray object = new JSONArray(result);
             builder.setMessage(result);
-            Benutzer benutzer = new Benutzer(object.getJSONObject(0).getString("name"),
+            Benutzer benutzer = new Benutzer(/*object.getJSONObject(0).getString("id"),*/
+                    object.getJSONObject(0).getString("name"),
                     object.getJSONObject(0).getString("vorname"),
                     object.getJSONObject(0).getString("ausbildung"),
-                    object.getJSONObject(0).getString("fachrichtung"), 0);
+                    object.getJSONObject(0).getString("fachrichtung")/*,
+                    object.getJSONObject(0).getString("pruefung")*/);
             model.setBenutzer(benutzer);
             nav.navigate(R.id.action_login_to_mainMenu);
         } catch (JSONException e) {

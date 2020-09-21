@@ -6,6 +6,9 @@ import androidx.lifecycle.ViewModel;
 
 import java.util.List;
 
+import hkbb.de.pflanzenmemorie.Models.Benutzer;
+import hkbb.de.pflanzenmemorie.Models.Pflanze;
+
 public class DataViewModel extends ViewModel {
     private MutableLiveData<Pflanze> Karte = new MutableLiveData<>();
     private MutableLiveData<List<Pflanze>> Kasten = new MutableLiveData<>();

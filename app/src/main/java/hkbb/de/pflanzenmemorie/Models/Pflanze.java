@@ -1,4 +1,4 @@
-package hkbb.de.pflanzenmemorie;
+package hkbb.de.pflanzenmemorie.Models;
 
 public class Pflanze {
     private String Gattungsname;
