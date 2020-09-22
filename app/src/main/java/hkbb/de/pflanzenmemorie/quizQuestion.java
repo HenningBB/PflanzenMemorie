@@ -1,6 +1,5 @@
 package hkbb.de.pflanzenmemorie;
 
-import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,12 +10,10 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
 import java.util.List;
 
-import hkbb.de.pflanzenmemorie.DataSources.PlantDataSource;
 import hkbb.de.pflanzenmemorie.Models.Pflanze;
 
 
@@ -38,7 +35,7 @@ public class quizQuestion extends Fragment {
         CustomQuizListAdapter adapter = new CustomQuizListAdapter(this.getContext(), plantsen.get(0).getFragen());
         list.setAdapter(adapter);
 
-        Button btn = view.findViewById(R.id.button2);
+        Button btn = view.findViewById(R.id.btn_changeToPicture);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
