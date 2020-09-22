@@ -23,11 +23,11 @@
             android:id="@+id/action_mainMenu_to_quizPicture"
             app:destination="@id/quizPicture" />
         <action
-            android:id="@+id/action_mainMenu_to_statistic"
-            app:destination="@id/statistic" />
-        <action
             android:id="@+id/action_mainMenu_to_login"
             app:destination="@id/login" />
+        <action
+            android:id="@+id/action_mainMenu_to_statistic_list"
+            app:destination="@id/statistic_list" />
     </fragment>
     <fragment
         android:id="@+id/quizPicture"
@@ -58,6 +58,9 @@
         <action
             android:id="@+id/action_statistic_to_mainMenu"
             app:destination="@id/mainMenu" />
+        <action
+            android:id="@+id/action_statistic_to_statistic_list"
+            app:destination="@id/statistic_list" />
     </fragment>
     <fragment
         android:id="@+id/endStatistica"
@@ -65,7 +68,19 @@
         android:label="fragment_end_statistica"
         tools:layout="@layout/fragment_end_statistica" >
         <action
-            android:id="@+id/action_endStatistica_to_mainMenu"
+            android:id="@+id/action_endStatistica_to_statistic"
+            app:destination="@id/statistic" />
+    </fragment>
+    <fragment
+        android:id="@+id/statistic_list"
+        android:name="hkbb.de.pflanzenmemorie.statistic_list"
+        android:label="fragment_statistic_list"
+        tools:layout="@layout/fragment_statistic_list" >
+        <action
+            android:id="@+id/action_statistic_list_to_endStatistica"
+            app:destination="@id/endStatistica" />
+        <action
+            android:id="@+id/action_statistic_list_to_mainMenu"
             app:destination="@id/mainMenu" />
     </fragment>
 </navigation>

@@ -233,53 +233,31 @@
                 android:inputType="textPersonName"
                 android:text="farbige Blattmetamorphosen (Hochblätter/Brakteen)"
                 app:layout_constraintBottom_toBottomOf="@+id/dataTen_lbl"
-                app:layout_constraintStart_toStartOf="@+id/totalTimeText_txt"
-                app:layout_constraintTop_toTopOf="@+id/dataTen_lbl" />
-
-            <TextView
-                android:id="@+id/totalTimeText_txt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="1:02:10"
-                android:textAlignment="center"
-                app:layout_constraintBottom_toBottomOf="@+id/totalTime_lbl"
-                app:layout_constraintStart_toEndOf="@+id/totalTime_lbl"
-                app:layout_constraintTop_toTopOf="@+id/totalTime_lbl" />
-
-            <TextView
-                android:id="@+id/totalTime_lbl"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
-                android:text="@string/totalTime"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dataTen_lbl" />
+                app:layout_constraintTop_toTopOf="@+id/dataTen_lbl"
+                tools:layout_editor_absoluteX="197dp" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/btn_goToStatistic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/backToMenu"
+                android:layout_marginStart="32dp"
+                android:text="@string/jumpToStatistic"
                 app:layout_constraintBottom_toBottomOf="@+id/nextPlant_btn"
-                app:layout_constraintStart_toStartOf="@+id/totalTimeText_txt"
-                app:layout_constraintTop_toTopOf="@+id/nextPlant_btn"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/nextPlant_btn"
+                app:layout_constraintTop_toTopOf="@+id/nextPlant_btn" />
 
             <Button
                 android:id="@+id/nextPlant_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginBottom="32dp"
-                android:text="@string/nextPlant"
+                android:text="@string/next"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/totalTime_lbl" />
+                app:layout_constraintTop_toBottomOf="@+id/dataTen_lbl" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

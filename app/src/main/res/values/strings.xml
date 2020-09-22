@@ -15,6 +15,7 @@
     <string name="next">Weiter</string>
     <string name="totalTime">Gesammt gebrauchte Zeit:</string>
     <string name="backToMenu">Zurück zum Menü</string>
-    <string name="nextPlant">Nächste Pflanze</string>
+    <string name="jumpToStatistic">Weiter zur Statistik</string>
     <string name="oneMinTimer">1 Minute pro Pflanze</string>
+    <string name="backToStatisticList">Statistikliste öffnen</string>
 </resources>
