@@ -113,8 +113,8 @@ public class LoginDataSource extends AsyncTask<String, Void, String> {
             Benutzer benutzer = new Benutzer(/*object.getJSONObject(0).getString("id"),*/
                     object.getJSONObject(0).getString("name"),
                     object.getJSONObject(0).getString("vorname"),
-                    object.getJSONObject(0).getString("ausbildung"),
-                    object.getJSONObject(0).getString("fachrichtung")/*,
+                    object.getJSONObject(0).getString("id_ausbildung"),
+                    object.getJSONObject(0).getString("id_fachrichtung")/*,
                     object.getJSONObject(0).getString("pruefung")*/);
             model.setBenutzer(benutzer);
             nav.navigate(R.id.action_login_to_mainMenu);
