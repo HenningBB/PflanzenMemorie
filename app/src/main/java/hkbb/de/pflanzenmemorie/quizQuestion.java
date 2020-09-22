@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -27,10 +28,13 @@ public class quizQuestion extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        final DataViewModel model = new ViewModelProvider(requireActivity()).get(DataViewModel.class);
-        final AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-        final NavController nav = NavHostFragment.findNavController(quizQuestion.this);
+        Button btn = view.findViewById(R.id.button2);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(quizQuestion.this).navigate(R.id.action_quizQuestion_to_quizPicture);
+            }
+        });
 
-        new PlantDataSource(builder,nav,model).execute();
     }
 }

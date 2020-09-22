@@ -6,7 +6,7 @@ import android.os.AsyncTask;
 import androidx.navigation.NavController;
 
 import org.json.JSONArray;
-import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,15 +15,16 @@ import java.io.OutputStreamWriter;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
 
 import hkbb.de.pflanzenmemorie.DataViewModel;
-import hkbb.de.pflanzenmemorie.Models.Benutzer;
-import hkbb.de.pflanzenmemorie.R;
+import hkbb.de.pflanzenmemorie.Models.FrageAntwortKategorie;
+import hkbb.de.pflanzenmemorie.Models.Pflanze;
 
 public class PlantDataSource extends AsyncTask<String, Void, String> {
 
     public static final String POST_PARAM_KEYVALUE_SEPARATOR = "=";
-    public static final String POST_PARAM_SEPARATOR = "&";
     public static final String DESTINATION_METHOD = "getPflanzen";
     private AlertDialog.Builder builder;
     private URLConnection conn;
@@ -76,9 +77,23 @@ public class PlantDataSource extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String result) {
         try {
-           // JSONArray object = new JSONArray(result);
+            List<Pflanze> pflanzeList = new ArrayList<>();
+            JSONArray object = new JSONArray(result);
+            for (int i = 0; i < object.length(); i++) {
+                JSONArray kategories = new JSONArray(object.getJSONObject(i).getString("0"));
+                List<FrageAntwortKategorie> kategorieList = new ArrayList<>();
+                for (int j = 0; j < kategories.length(); j++) {
+                    JSONObject ubject = kategories.getJSONObject(j);
+                    FrageAntwortKategorie kat = new FrageAntwortKategorie(ubject.getString("kategorie_name"), ubject.getString("antwort"));
+                    kategorieList.add(kat);
+                }
+                Pflanze pflanze = new Pflanze(kategorieList);
+                pflanzeList.add(pflanze);
+            }
+            model.setKasten(pflanzeList);
+
             builder.setMessage(result);
-           // nav.navigate(R.id.action_login_to_mainMenu);
+            // nav.navigate(R.id.action_login_to_mainMenu);
         } catch (Exception e) {
             builder.setMessage("Fehler!");
             e.printStackTrace();

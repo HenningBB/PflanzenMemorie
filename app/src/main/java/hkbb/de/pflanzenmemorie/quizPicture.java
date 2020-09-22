@@ -9,6 +9,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 
 public class quizPicture extends Fragment {
@@ -22,6 +23,13 @@ public class quizPicture extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        NavHostFragment.findNavController(quizPicture.this).navigate(R.id.action_quizPicture_to_quizQuestion);
+        Button btn = view.findViewById(R.id.button26);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(quizPicture.this).navigate(R.id.action_quizPicture_to_quizQuestion);
+            }
+        });
+
     }
 }
