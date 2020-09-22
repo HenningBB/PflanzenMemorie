@@ -41,7 +41,7 @@ public class mainMenu extends Fragment {
         toStatistic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(mainMenu.this).navigate(R.id.action_mainMenu_to_statistic);
+                NavHostFragment.findNavController(mainMenu.this).navigate(R.id.action_mainMenu_to_statistic_list);
             }
         });
     }

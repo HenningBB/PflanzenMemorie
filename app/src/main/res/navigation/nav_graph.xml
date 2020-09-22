@@ -59,7 +59,7 @@
             android:id="@+id/action_statistic_to_mainMenu"
             app:destination="@id/mainMenu" />
         <action
-            android:id="@+id/action_statistic_to_statistic_list"
+            android:id="@+id/action_statistic_to_statistic_list2"
             app:destination="@id/statistic_list" />
     </fragment>
     <fragment
@@ -77,10 +77,10 @@
         android:label="fragment_statistic_list"
         tools:layout="@layout/fragment_statistic_list" >
         <action
-            android:id="@+id/action_statistic_list_to_endStatistica"
-            app:destination="@id/endStatistica" />
-        <action
             android:id="@+id/action_statistic_list_to_mainMenu"
             app:destination="@id/mainMenu" />
+        <action
+            android:id="@+id/action_statistic_list_to_statistic"
+            app:destination="@id/statistic" />
     </fragment>
 </navigation>

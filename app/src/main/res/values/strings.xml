@@ -9,7 +9,7 @@
     <string name="statistic">Statistik</string>
     <string name="Logout">Abmelden</string>
     <string name="back">Zurück</string>
-    <string name="fewestErrors">Pflanze mit den wenigsten Fehlern:</string>
+    <string name="mostErrors">Pflanze mit den meisten Fehlern:</string>
     <string name="errorRate">Fehlerquote:</string>
     <string name="averageTime">Durchschnitlliche Zeit:</string>
     <string name="next">Weiter</string>
