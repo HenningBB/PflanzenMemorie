@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -13,7 +14,10 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
+import java.util.List;
+
 import hkbb.de.pflanzenmemorie.DataSources.PlantDataSource;
+import hkbb.de.pflanzenmemorie.Models.Pflanze;
 
 
 public class quizQuestion extends Fragment {
@@ -27,6 +31,12 @@ public class quizQuestion extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        DataViewModel model = new ViewModelProvider(requireActivity()).get(DataViewModel.class);
+        ListView list = view.findViewById(R.id.qustionList);
+        List<Pflanze> plantsen = model.getKasten().getValue();
+        CustomQuizListAdapter adapter = new CustomQuizListAdapter(this.getContext(), plantsen.get(0).getFragen());
+        list.setAdapter(adapter);
 
         Button btn = view.findViewById(R.id.button2);
         btn.setOnClickListener(new View.OnClickListener() {
