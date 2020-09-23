@@ -10,9 +10,9 @@ import hkbb.de.pflanzenmemorie.Models.Benutzer;
 import hkbb.de.pflanzenmemorie.Models.Pflanze;
 
 public class DataViewModel extends ViewModel {
+    private MutableLiveData<List<Integer>> Quiz = new MutableLiveData<>();
     private MutableLiveData<Pflanze> Karte = new MutableLiveData<>();
     private MutableLiveData<List<Pflanze>> Kasten = new MutableLiveData<>();
-    private MutableLiveData<List<Pflanze>> Quiz = new MutableLiveData<>();
     private MutableLiveData<Benutzer> Benutzter = new MutableLiveData<>();
 
     public void setKarte(Pflanze karte) {
@@ -23,7 +23,7 @@ public class DataViewModel extends ViewModel {
         Kasten.setValue(kasten);
     }
 
-    public void setQuiz(List<Pflanze> quiz) {
+    public void setQuiz(List<Integer> quiz) {
         Quiz.setValue(quiz);
     }
 
@@ -39,7 +39,7 @@ public class DataViewModel extends ViewModel {
         return Kasten;
     }
 
-    public LiveData<List<Pflanze>> getQuiz() {
+    public LiveData<List<Integer>> getQuiz() {
         return Quiz;
     }
 

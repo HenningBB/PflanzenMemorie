@@ -11,7 +11,6 @@ import android.widget.TextView;
 import java.util.List;
 
 import hkbb.de.pflanzenmemorie.Models.FrageAntwortKategorie;
-import hkbb.de.pflanzenmemorie.Models.Pflanze;
 
 public class CustomQuizListAdapter extends BaseAdapter {
 
@@ -40,7 +39,7 @@ public class CustomQuizListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup viewGroup) {
-        ViewHolder holder;
+        final ViewHolder holder;
         if (convertView == null) {
             convertView = layoutInflater.inflate(R.layout.questionlistitem, null);
             holder = new ViewHolder();
@@ -50,14 +49,24 @@ public class CustomQuizListAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        FrageAntwortKategorie kat = this.kategorieList.get(position);
-        holder.frage.setText(kat.getName());
-
+        holder.kat = this.kategorieList.get(position);
+        holder.frage.setText(holder.kat.getName());
+        holder.antwort.setText(holder.kat.getEingabe());
+        holder.antwort.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (!b) {
+                    holder.kat.setEingabe(holder.antwort.getText().toString());
+                }
+            }
+        });
         return convertView;
     }
+
 
     static class ViewHolder {
         TextView frage;
         EditText antwort;
+        FrageAntwortKategorie kat;
     }
 }

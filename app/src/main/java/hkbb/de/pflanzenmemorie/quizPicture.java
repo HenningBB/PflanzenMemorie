@@ -23,6 +23,7 @@ public class quizPicture extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         Button btn = view.findViewById(R.id.btn_picToQwest);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,6 +31,8 @@ public class quizPicture extends Fragment {
                 NavHostFragment.findNavController(quizPicture.this).navigate(R.id.action_quizPicture_to_quizQuestion);
             }
         });
+
+
 
     }
 }

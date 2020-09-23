@@ -123,7 +123,7 @@ public class LoginDataSource extends AsyncTask<String, Void, String> {
             e.printStackTrace();
         }
         final AlertDialog alertDialog = builder.create();
-        alertDialog.show();
+        //alertDialog.show();
     }
 
     //Hash-Funktion

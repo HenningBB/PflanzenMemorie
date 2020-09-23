@@ -99,6 +99,6 @@ public class PlantDataSource extends AsyncTask<String, Void, String> {
             e.printStackTrace();
         }
         final AlertDialog alertDialog = builder.create();
-        alertDialog.show();
+        //alertDialog.show();
     }
 }

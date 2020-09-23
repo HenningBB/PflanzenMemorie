@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -14,10 +15,13 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import java.util.List;
 
+import hkbb.de.pflanzenmemorie.Models.FrageAntwortKategorie;
 import hkbb.de.pflanzenmemorie.Models.Pflanze;
 
 
 public class quizQuestion extends Fragment {
+    List<Pflanze> plantsen;
+    List<FrageAntwortKategorie> fragen;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,9 +34,10 @@ public class quizQuestion extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         DataViewModel model = new ViewModelProvider(requireActivity()).get(DataViewModel.class);
-        ListView list = view.findViewById(R.id.qustionList);
-        List<Pflanze> plantsen = model.getKasten().getValue();
-        CustomQuizListAdapter adapter = new CustomQuizListAdapter(this.getContext(), plantsen.get(0).getFragen());
+        final ListView list = view.findViewById(R.id.qustionList);
+        plantsen = model.getKasten().getValue();
+        fragen = plantsen.get(0).getFragen();
+        final CustomQuizListAdapter adapter = new CustomQuizListAdapter(this.getContext(), fragen);
         list.setAdapter(adapter);
 
         Button btn = view.findViewById(R.id.btn_changeToPicture);
