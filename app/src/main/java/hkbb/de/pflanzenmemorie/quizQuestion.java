@@ -34,18 +34,31 @@ public class quizQuestion extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        DataViewModel model = new ViewModelProvider(requireActivity()).get(DataViewModel.class);
+        final DataViewModel model = new ViewModelProvider(requireActivity()).get(DataViewModel.class);
         final ListView list = view.findViewById(R.id.qustionList);
         plantsen = model.getKasten().getValue();
-        fragen = plantsen.get(0).getFragen();
+        fragen = plantsen.get(model.getQuizPointer().getValue()).getFragen();
         final CustomQuizListAdapter adapter = new CustomQuizListAdapter(this.getContext(), fragen);
         list.setAdapter(adapter);
 
-        Button btn = view.findViewById(R.id.btn_changeToPicture);
-        btn.setOnClickListener(new View.OnClickListener() {
+        Button btnPicture = view.findViewById(R.id.btn_changeToPicture);
+        btnPicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(quizQuestion.this).navigate(R.id.action_quizQuestion_to_quizPicture);
+            }
+        });
+
+        Button btnNext = view.findViewById(R.id.btn_questionNextQuestion);
+        btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                model.setQuizPointer(model.getQuizPointer().getValue() + 1);
+                if (model.getQuizPointer().getValue() <= model.getQuizSize().getValue()) {
+                    NavHostFragment.findNavController(quizQuestion.this).navigate(R.id.action_quizQuestion_to_quizPicture);
+                } else {
+                    NavHostFragment.findNavController(quizQuestion.this).navigate(R.id.action_quizQuestion_to_endStatistica);
+                }
             }
         });
 

@@ -14,7 +14,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import hkbb.de.pflanzenmemorie.DataSources.PlantDataSource;
+import hkbb.de.pflanzenmemorie.Models.Pflanze;
 
 
 public class mainMenu extends Fragment {
@@ -33,7 +37,7 @@ public class mainMenu extends Fragment {
         final AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
         final NavController nav = NavHostFragment.findNavController(mainMenu.this);
 
-        new PlantDataSource(builder,nav,model).execute();
+        new PlantDataSource(builder, nav, model).execute();
 
         Button btn_abmelden = view.findViewById(R.id.menuLogout_btn);
         btn_abmelden.setOnClickListener(new View.OnClickListener() {
@@ -42,13 +46,27 @@ public class mainMenu extends Fragment {
                 NavHostFragment.findNavController(mainMenu.this).navigate(R.id.action_mainMenu_to_login);
             }
         });
+
         Button btnRandomQuiz = view.findViewById(R.id.ownQuiz_btn);
         btnRandomQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                //here we use the quizsize we get from the db
+                model.setQuizSize(2);
+
+                List<Pflanze> list = model.getKasten().getValue();
+                List<Integer> qui = new ArrayList<>();
+                for (int i = 0; i < model.getQuizSize().getValue(); i++) {
+                    qui.add(i);
+                }
+                model.setQuizPointer(0);
+                model.setQuiz(qui);
+
                 NavHostFragment.findNavController(mainMenu.this).navigate(R.id.action_mainMenu_to_quizPicture);
             }
         });
+
         Button toStatistic = view.findViewById(R.id.statistic_btn);
         toStatistic.setOnClickListener(new View.OnClickListener() {
             @Override
