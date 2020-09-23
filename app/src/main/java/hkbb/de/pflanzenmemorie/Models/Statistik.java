@@ -1,32 +1,26 @@
 package hkbb.de.pflanzenmemorie.Models;
 
 public class Statistik {
-String id;
-String datum;
-String azubiId;
-String fehlerquote;
-String zeit;
-String schlechtestePlfanze;
+    String id;
+    String erstellDatum;
+    String fehlerquote;
+    String zeit;
+    String schlechtestePlfanzeID;
 
-    public Statistik(String id, String datum, String azubiId, String fehlerquote, String zeit, String schlechtestePlfanze) {
+    public Statistik(String id, String erstellDatum, String fehlerquote, String zeit, String schlechtestePlfanze) {
         this.id = id;
-        this.datum = datum;
-        this.azubiId = azubiId;
+        this.erstellDatum = erstellDatum;
         this.fehlerquote = fehlerquote;
         this.zeit = zeit;
-        this.schlechtestePlfanze = schlechtestePlfanze;
+        this.schlechtestePlfanzeID = schlechtestePlfanze;
     }
 
     public String getId() {
         return id;
     }
 
-    public String getDatum() {
-        return datum;
-    }
-
-    public String getAzubiId() {
-        return azubiId;
+    public String getErstellDatum() {
+        return erstellDatum;
     }
 
     public String getFehlerquote() {
@@ -38,7 +32,7 @@ String schlechtestePlfanze;
     }
 
     public String getSchlechtestePlfanze() {
-        return schlechtestePlfanze;
+        return schlechtestePlfanzeID;
     }
 }
 

@@ -110,7 +110,7 @@ public class LoginDataSource extends AsyncTask<String, Void, String> {
         try {
             JSONArray object = new JSONArray(result);
             builder.setMessage(result);
-            Benutzer benutzer = new Benutzer(/*object.getJSONObject(0).getString("id"),*/
+            Benutzer benutzer = new Benutzer(object.getJSONObject(0).getString("id"),
                     object.getJSONObject(0).getString("name"),
                     object.getJSONObject(0).getString("vorname"),
                     object.getJSONObject(0).getString("id_ausbildung"),
