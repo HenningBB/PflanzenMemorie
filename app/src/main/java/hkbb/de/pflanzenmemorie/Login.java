@@ -1,6 +1,7 @@
 package hkbb.de.pflanzenmemorie;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,12 +12,16 @@ import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
 import hkbb.de.pflanzenmemorie.DataSources.LoginDataSource;
+
+import static androidx.core.content.ContextCompat.getSystemService;
 
 
 public class Login extends Fragment {
@@ -52,4 +57,5 @@ public class Login extends Fragment {
             }
         });
     }
+
 }

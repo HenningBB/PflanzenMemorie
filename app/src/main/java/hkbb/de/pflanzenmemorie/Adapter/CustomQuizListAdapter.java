@@ -1,4 +1,4 @@
-package hkbb.de.pflanzenmemorie;
+package hkbb.de.pflanzenmemorie.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,6 +11,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import hkbb.de.pflanzenmemorie.Models.FrageAntwortKategorie;
+import hkbb.de.pflanzenmemorie.R;
 
 public class CustomQuizListAdapter extends BaseAdapter {
 

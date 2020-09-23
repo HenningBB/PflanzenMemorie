@@ -56,11 +56,11 @@
         android:label="fragment_statistic"
         tools:layout="@layout/fragment_statistic" >
         <action
-            android:id="@+id/action_statistic_to_mainMenu"
-            app:destination="@id/mainMenu" />
-        <action
             android:id="@+id/action_statistic_to_statistic_list2"
             app:destination="@id/statistic_list" />
+        <action
+            android:id="@+id/action_statistic_to_endStatistica"
+            app:destination="@id/endStatistica" />
     </fragment>
     <fragment
         android:id="@+id/endStatistica"

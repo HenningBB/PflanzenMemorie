@@ -22,4 +22,5 @@
     <string name="qwest">Qwest</string>
     <string name="nextQuestion">Nächste Frage</string>
     <string name="breaks">Pause</string>
+    <string name="evaluation">Zur Auswertung</string>
 </resources>

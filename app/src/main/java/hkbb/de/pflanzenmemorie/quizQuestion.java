@@ -15,6 +15,7 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import java.util.List;
 
+import hkbb.de.pflanzenmemorie.Adapter.CustomQuizListAdapter;
 import hkbb.de.pflanzenmemorie.Models.FrageAntwortKategorie;
 import hkbb.de.pflanzenmemorie.Models.Pflanze;
 

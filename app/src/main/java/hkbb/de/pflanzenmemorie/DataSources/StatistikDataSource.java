@@ -6,6 +6,7 @@ import androidx.navigation.NavController;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,6 +15,12 @@ import java.io.OutputStreamWriter;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
+
+import hkbb.de.pflanzenmemorie.Models.FrageAntwortKategorie;
+import hkbb.de.pflanzenmemorie.Models.Pflanze;
+import hkbb.de.pflanzenmemorie.Models.Statistik;
 
 public class StatistikDataSource {
 
@@ -33,17 +40,12 @@ public class StatistikDataSource {
     protected String doInBackground(String... strings) {
         try {
             if (DESTINATION_METHOD == "getStatistik") {
-                getStatisticConnection(strings[0], strings[1]);
+                getStatisticConnection();
                 return readResult();
             }
-            else if (DESTINATION_METHOD == "createStatistik"){
-
-            }
             else if (DESTINATION_METHOD == "getStatDetails"){
-
-            }
-            else if (DESTINATION_METHOD == "createStatDeatails"){
-
+                getStatisticDetailConnection();
+                return readResult();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -51,7 +53,7 @@ public class StatistikDataSource {
         return null;
     }
 
-    private void getStatisticConnection(String user, String pw) throws IOException{
+    private void getStatisticConnection() throws IOException{
         StringBuffer dataBuffer = new StringBuffer();
         dataBuffer.append(URLEncoder.encode(DESTINATION_METHOD, "UTF-8"));
         dataBuffer.append(POST_PARAM_KEYVALUE_SEPARATOR);
@@ -65,15 +67,7 @@ public class StatistikDataSource {
         wr.flush();
     }
 
-    private void setStatisticConnection(String user, String pw) throws IOException{
-
-    }
-
-    private void getStatisticDetailConnection(String user, String pw) throws IOException{
-
-    }
-
-    private void setStatisticDetailConnection(String user, String pw) throws IOException{
+    private void getStatisticDetailConnection() throws IOException{
 
     }
 
@@ -88,5 +82,20 @@ public class StatistikDataSource {
             sb.append(line);
         }
         return sb.toString();
+    }
+
+
+    protected void onPostExecute(String result){
+        try {
+            List<Statistik> statistikList = new ArrayList<>();
+            JSONArray object = new JSONArray(result);
+            for (int i = 0; i<object.length(); i++)
+            {
+
+            }
+        } catch (Exception e) {
+            builder.setMessage("Fehler!");
+            e.printStackTrace();
+        }
     }
 }
