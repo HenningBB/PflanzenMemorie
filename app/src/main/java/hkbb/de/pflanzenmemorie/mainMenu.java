@@ -37,7 +37,9 @@ public class mainMenu extends Fragment {
         final AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
         final NavController nav = NavHostFragment.findNavController(mainMenu.this);
 
-        new PlantDataSource(builder, nav, model).execute();
+        if (model.getKasten().getValue() == null) {
+            new PlantDataSource(builder, nav, model).execute();
+        }
 
         Button btn_abmelden = view.findViewById(R.id.menuLogout_btn);
         btn_abmelden.setOnClickListener(new View.OnClickListener() {
