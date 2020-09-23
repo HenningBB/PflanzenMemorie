@@ -22,11 +22,12 @@ public class statistic extends Fragment {
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-        Button backToMenu = view.findViewById(R.id.statisticToEvaluation_btn);
+        super.onViewCreated(view, savedInstanceState);
+        Button backToMenu = view.findViewById(R.id.btn_TatisticToStatisticlist);
         backToMenu.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(statistic.this).navigate(R.id.action_statistic_to_endStatistica);
+                NavHostFragment.findNavController(statistic.this).navigate(R.id.action_statistic_to_statistic_list2);
             }
         });
 

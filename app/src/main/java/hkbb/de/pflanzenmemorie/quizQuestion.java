@@ -54,7 +54,7 @@ public class quizQuestion extends Fragment {
             @Override
             public void onClick(View view) {
                 model.setQuizPointer(model.getQuizPointer().getValue() + 1);
-                if (model.getQuizPointer().getValue() <= model.getQuizSize().getValue()) {
+                if (model.getQuizPointer().getValue() < model.getQuizSize().getValue()) {
                     NavHostFragment.findNavController(quizQuestion.this).navigate(R.id.action_quizQuestion_to_quizPicture);
                 } else {
                     NavHostFragment.findNavController(quizQuestion.this).navigate(R.id.action_quizQuestion_to_endStatistica);
