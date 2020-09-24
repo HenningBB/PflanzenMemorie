@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import hkbb.de.pflanzenmemorie.DataSources.PlantDataSource;
+import hkbb.de.pflanzenmemorie.DataSources.StatistikDataSource;
 import hkbb.de.pflanzenmemorie.Models.Pflanze;
 
 
@@ -40,6 +41,8 @@ public class mainMenu extends Fragment {
         if (model.getKasten().getValue() == null) {
             new PlantDataSource(builder, nav, model).execute();
         }
+
+
 
         Button btn_abmelden = view.findViewById(R.id.menuLogout_btn);
         btn_abmelden.setOnClickListener(new View.OnClickListener() {
@@ -73,6 +76,7 @@ public class mainMenu extends Fragment {
         toStatistic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                new StatistikDataSource(nav,model).execute("getStatistik");
                 NavHostFragment.findNavController(mainMenu.this).navigate(R.id.action_mainMenu_to_statistic_list);
             }
         });
