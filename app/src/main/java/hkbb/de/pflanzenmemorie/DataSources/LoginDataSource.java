@@ -109,7 +109,7 @@ public class LoginDataSource extends AsyncTask<String, Void, String> {
     protected void onPostExecute(String result) {
         try {
             JSONArray object = new JSONArray(result);
-            builder.setMessage(result);
+
             Benutzer benutzer = new Benutzer(object.getJSONObject(0).getString("id"),
                     object.getJSONObject(0).getString("name"),
                     object.getJSONObject(0).getString("vorname"),
@@ -117,13 +117,14 @@ public class LoginDataSource extends AsyncTask<String, Void, String> {
                     object.getJSONObject(0).getString("id_fachrichtung")/*,
                     object.getJSONObject(0).getString("pruefung")*/);
             model.setBenutzer(benutzer);
+            builder.setMessage(benutzer.getId());
             nav.navigate(R.id.action_login_to_mainMenu);
         } catch (JSONException e) {
             builder.setMessage("Benutzername oder Passwort ist falsch!");
             e.printStackTrace();
         }
         final AlertDialog alertDialog = builder.create();
-        //alertDialog.show();
+        alertDialog.show();
     }
 
     //Hash-Funktion
