@@ -1,26 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/txt_Quiznumber"
+        android:id="@+id/QuizDateLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:text="@string/quizDateLabel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txt_Quizdatetime"
+        android:id="@+id/txt_QuizDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/txt_Quiznumber"
-        app:layout_constraintStart_toEndOf="@+id/txt_Quiznumber"
-        app:layout_constraintTop_toTopOf="@+id/txt_Quiznumber" />
+        app:layout_constraintBottom_toBottomOf="@+id/QuizDateLabel"
+        app:layout_constraintStart_toEndOf="@+id/QuizDateLabel"
+        app:layout_constraintTop_toTopOf="@+id/QuizDateLabel"/>
+
+    <TextView
+        android:id="@+id/QuizFehlerQuoteLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/quizFehlerQuoteLabel"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_QuizDate"
+        app:layout_constraintStart_toEndOf="@+id/txt_QuizDate"
+        app:layout_constraintTop_toTopOf="@+id/txt_QuizDate"/>
+
+    <TextView
+        android:id="@+id/txt_QuizFehlerQuote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/QuizFehlerQuoteLabel"
+        app:layout_constraintStart_toEndOf="@+id/QuizFehlerQuoteLabel"
+        app:layout_constraintTop_toTopOf="@+id/QuizFehlerQuoteLabel" />
+
+    <TextView
+        android:id="@+id/QuizTimeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/quizTimeLabel"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_QuizFehlerQuote"
+        app:layout_constraintStart_toEndOf="@+id/txt_QuizFehlerQuote"
+        app:layout_constraintTop_toTopOf="@+id/txt_QuizFehlerQuote" />
+
+    <TextView
+        android:id="@+id/txt_QuizTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/QuizTimeLabel"
+        app:layout_constraintStart_toEndOf="@+id/QuizTimeLabel"
+        app:layout_constraintTop_toTopOf="@+id/QuizTimeLabel" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

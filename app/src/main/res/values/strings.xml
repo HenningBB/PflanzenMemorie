@@ -23,4 +23,9 @@
     <string name="nextQuestion">Nächste Frage</string>
     <string name="breaks">Pause</string>
     <string name="evaluation">Zur Auswertung</string>
+
+
+    <string name="quizDateLabel">Quiz vom:</string>
+    <string name="quizFehlerQuoteLabel">Fehlerquote:</string>
+    <string name="quizTimeLabel">Benötigte Zeit:</string>
 </resources>
