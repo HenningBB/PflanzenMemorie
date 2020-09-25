@@ -19,6 +19,7 @@ public class DataViewModel extends ViewModel {
     private MutableLiveData<List<Pflanze>> Kasten = new MutableLiveData<>();
     private MutableLiveData<Benutzer> Benutzter = new MutableLiveData<>();
     private MutableLiveData<List<Statistik>> StatistikList = new MutableLiveData<>();
+    private MutableLiveData<Statistik> SelectedStatistik = new MutableLiveData<>();
 
 
     public void setQuizPointer(Integer pointer) {
@@ -49,6 +50,10 @@ public class DataViewModel extends ViewModel {
         StatistikList.setValue(listS);
     }
 
+    public void setSelectedStatistik(Statistik statistik) {
+        SelectedStatistik.setValue(statistik);
+    }
+
 
     public LiveData<Integer> getQuizPointer() {
         return QuizPointer;
@@ -76,5 +81,9 @@ public class DataViewModel extends ViewModel {
 
     public LiveData<List<Statistik>> getStatistikList() {
         return StatistikList;
+    }
+
+    public LiveData<Statistik> getSelectedStatistic() {
+        return SelectedStatistik;
     }
 }
