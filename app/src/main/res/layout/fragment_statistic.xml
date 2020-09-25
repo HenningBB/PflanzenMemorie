@@ -57,19 +57,19 @@
             android:layout_width="wrap_content"
             android:layout_height="19dp"
             app:layout_constraintBottom_toBottomOf="@+id/errorRate_lbl"
-            app:layout_constraintStart_toStartOf="@+id/averageTimeText_lbl"
+            app:layout_constraintStart_toStartOf="@+id/timeText_lbl"
             app:layout_constraintTop_toTopOf="@+id/errorRate_lbl" />
 
         <TextView
-            android:id="@+id/averageTimeText_lbl"
+            android:id="@+id/timeText_lbl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@+id/averageTime_lbl"
-            app:layout_constraintStart_toStartOf="@+id/fewestErrorsText_lbl"
+            app:layout_constraintStart_toStartOf="@+id/plantText_lbl"
             app:layout_constraintTop_toTopOf="@+id/averageTime_lbl" />
 
         <TextView
-            android:id="@+id/fewestErrorsText_lbl"
+            android:id="@+id/plantText_lbl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"

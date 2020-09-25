@@ -34,8 +34,8 @@ public class statistic_list extends Fragment {
             list.setAdapter(adapter);
             list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int poistion, long id) {
-                    model.setSelectedStatistik(model.getStatistikList().getValue().get(poistion));
+                public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                    model.setSelectedStatistik(model.getStatistikList().getValue().get(position));
                     NavHostFragment.findNavController(statistic_list.this).navigate(R.id.action_statistic_list_to_statistic);
                 }
             });
