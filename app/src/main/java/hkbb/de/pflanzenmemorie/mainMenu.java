@@ -77,7 +77,7 @@ public class mainMenu extends Fragment {
             @Override
             public void onClick(View view) {
                 new StatistikDataSource(nav,model).execute("getStatistik");
-                NavHostFragment.findNavController(mainMenu.this).navigate(R.id.action_mainMenu_to_statistic_list);
+
             }
         });
     }

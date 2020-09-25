@@ -3,6 +3,7 @@ package hkbb.de.pflanzenmemorie.DataSources;
 import android.os.AsyncTask;
 
 import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -19,6 +20,8 @@ import java.util.List;
 
 import hkbb.de.pflanzenmemorie.DataViewModel;
 import hkbb.de.pflanzenmemorie.Models.Statistik;
+import hkbb.de.pflanzenmemorie.R;
+import hkbb.de.pflanzenmemorie.mainMenu;
 
 public class StatistikDataSource extends AsyncTask<String, Void, String> {
 
@@ -105,6 +108,8 @@ public class StatistikDataSource extends AsyncTask<String, Void, String> {
                 } else {
 
                 }
+
+                nav.navigate(R.id.action_mainMenu_to_statistic_list);
             }
         } catch (Exception e) {
             e.printStackTrace();
