@@ -10,6 +10,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -27,10 +28,18 @@ public class statistic_list extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         try {
-            DataViewModel model = new ViewModelProvider(requireActivity()).get(DataViewModel.class);
+            final DataViewModel model = new ViewModelProvider(requireActivity()).get(DataViewModel.class);
             ListView list = view.findViewById(R.id.listOfStatistics);
             CustomStatisticListAdapter adapter = new CustomStatisticListAdapter(this.getContext(), model.getStatistikList().getValue());
             list.setAdapter(adapter);
+            list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int poistion, long id) {
+                    model.setSelectedStatistik(model.getStatistikList().getValue().get(poistion));
+                    NavHostFragment.findNavController(statistic_list.this).navigate(R.id.action_statistic_list_to_statistic);
+                }
+            });
+
         } catch (Exception e) {
             e.printStackTrace();
         }
