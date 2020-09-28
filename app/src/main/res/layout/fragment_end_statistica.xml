@@ -6,235 +6,256 @@
     android:layout_height="match_parent"
     tools:context=".endStatistica">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="1dp">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/avatars" />
+            tools:layout_editor_absoluteX="1dp">
 
-        <TextView
-            android:id="@+id/DataOne_lbl"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/avatars" />
 
-        <TextView
-            android:id="@+id/dataNine_lbl"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dataEight_lbl" />
+            <TextView
+                android:id="@+id/DataOne_lbl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-        <TextView
-            android:id="@+id/dataTen_lbl"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dataNine_lbl" />
+            <TextView
+                android:id="@+id/dataNine_lbl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dataEight_lbl" />
 
-        <TextView
-            android:id="@+id/dataFive_lbl"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dataFour_lbl" />
+            <TextView
+                android:id="@+id/dataTen_lbl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dataNine_lbl" />
 
-        <TextView
-            android:id="@+id/dataEight_lbl"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dataSeven_lbl" />
+            <TextView
+                android:id="@+id/dataFive_lbl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dataFour_lbl" />
 
-        <TextView
-            android:id="@+id/dataSeven_lbl"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dataSix_lbl" />
+            <TextView
+                android:id="@+id/dataEight_lbl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dataSeven_lbl" />
 
-        <TextView
-            android:id="@+id/dataFour_lbl"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dataThree_lbl" />
+            <TextView
+                android:id="@+id/dataSeven_lbl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dataSix_lbl" />
 
-        <TextView
-            android:id="@+id/dataThree_lbl"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dataTwo_lbl" />
+            <TextView
+                android:id="@+id/dataFour_lbl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dataThree_lbl" />
 
-        <TextView
-            android:id="@+id/dataSix_lbl"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dataFive_lbl" />
+            <TextView
+                android:id="@+id/dataThree_lbl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dataTwo_lbl" />
 
-        <TextView
-            android:id="@+id/dataTwo_lbl"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/DataOne_lbl" />
+            <TextView
+                android:id="@+id/dataSix_lbl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dataFive_lbl" />
 
-        <TextView
-            android:id="@+id/dataOneText_txt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toBottomOf="@+id/DataOne_lbl"
-            app:layout_constraintStart_toStartOf="@+id/dataTwoText_txt"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            <TextView
+                android:id="@+id/dataTwo_lbl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/DataOne_lbl" />
 
-        <TextView
-            android:id="@+id/dataTwoText_txt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toBottomOf="@+id/dataTwo_lbl"
-            app:layout_constraintStart_toStartOf="@+id/dataThreeText_txt"
-            app:layout_constraintTop_toTopOf="@+id/dataTwo_lbl" />
+            <TextView
+                android:id="@+id/dataOneText_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toBottomOf="@+id/DataOne_lbl"
+                app:layout_constraintStart_toStartOf="@+id/dataTwoText_txt"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-        <TextView
-            android:id="@+id/dataThreeText_txt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toBottomOf="@+id/dataThree_lbl"
-            app:layout_constraintStart_toStartOf="@+id/dataFourText_txt"
-            app:layout_constraintTop_toTopOf="@+id/dataThree_lbl" />
+            <TextView
+                android:id="@+id/dataTwoText_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toBottomOf="@+id/dataTwo_lbl"
+                app:layout_constraintStart_toStartOf="@+id/dataThreeText_txt"
+                app:layout_constraintTop_toTopOf="@+id/dataTwo_lbl" />
 
-        <TextView
-            android:id="@+id/dataFourText_txt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toBottomOf="@+id/dataFour_lbl"
-            app:layout_constraintStart_toStartOf="@+id/dataFiveText_txt"
-            app:layout_constraintTop_toTopOf="@+id/dataFour_lbl" />
+            <TextView
+                android:id="@+id/dataThreeText_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toBottomOf="@+id/dataThree_lbl"
+                app:layout_constraintStart_toStartOf="@+id/dataFourText_txt"
+                app:layout_constraintTop_toTopOf="@+id/dataThree_lbl" />
 
-        <TextView
-            android:id="@+id/dataFiveText_txt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toBottomOf="@+id/dataFive_lbl"
-            app:layout_constraintStart_toStartOf="@+id/dataSixText_txt"
-            app:layout_constraintTop_toTopOf="@+id/dataFive_lbl" />
+            <TextView
+                android:id="@+id/dataFourText_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toBottomOf="@+id/dataFour_lbl"
+                app:layout_constraintStart_toStartOf="@+id/dataFiveText_txt"
+                app:layout_constraintTop_toTopOf="@+id/dataFour_lbl" />
 
-        <TextView
-            android:id="@+id/dataSixText_txt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toBottomOf="@+id/dataSix_lbl"
-            app:layout_constraintStart_toStartOf="@+id/dataSevenText_txt"
-            app:layout_constraintTop_toTopOf="@+id/dataSix_lbl" />
+            <TextView
+                android:id="@+id/dataFiveText_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toBottomOf="@+id/dataFive_lbl"
+                app:layout_constraintStart_toStartOf="@+id/dataSixText_txt"
+                app:layout_constraintTop_toTopOf="@+id/dataFive_lbl" />
 
-        <TextView
-            android:id="@+id/dataSevenText_txt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toBottomOf="@+id/dataSeven_lbl"
-            app:layout_constraintStart_toStartOf="@+id/dataEightText_txt"
-            app:layout_constraintTop_toTopOf="@+id/dataSeven_lbl" />
+            <TextView
+                android:id="@+id/dataSixText_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toBottomOf="@+id/dataSix_lbl"
+                app:layout_constraintStart_toStartOf="@+id/dataSevenText_txt"
+                app:layout_constraintTop_toTopOf="@+id/dataSix_lbl" />
 
-        <TextView
-            android:id="@+id/dataEightText_txt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toBottomOf="@+id/dataEight_lbl"
-            app:layout_constraintStart_toStartOf="@+id/dataNineText_txt"
-            app:layout_constraintTop_toTopOf="@+id/dataEight_lbl" />
+            <TextView
+                android:id="@+id/dataSevenText_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toBottomOf="@+id/dataSeven_lbl"
+                app:layout_constraintStart_toStartOf="@+id/dataEightText_txt"
+                app:layout_constraintTop_toTopOf="@+id/dataSeven_lbl" />
 
-        <TextView
-            android:id="@+id/dataNineText_txt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toBottomOf="@+id/dataNine_lbl"
-            app:layout_constraintStart_toStartOf="@+id/dataTenText_txt"
-            app:layout_constraintTop_toTopOf="@+id/dataNine_lbl" />
+            <TextView
+                android:id="@+id/dataEightText_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toBottomOf="@+id/dataEight_lbl"
+                app:layout_constraintStart_toStartOf="@+id/dataNineText_txt"
+                app:layout_constraintTop_toTopOf="@+id/dataEight_lbl" />
 
-        <TextView
-            android:id="@+id/dataTenText_txt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toBottomOf="@+id/dataTen_lbl"
-            app:layout_constraintTop_toTopOf="@+id/dataTen_lbl"
-            tools:layout_editor_absoluteX="197dp" />
+            <TextView
+                android:id="@+id/dataNineText_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toBottomOf="@+id/dataNine_lbl"
+                app:layout_constraintStart_toStartOf="@+id/dataTenText_txt"
+                app:layout_constraintTop_toTopOf="@+id/dataNine_lbl" />
 
-        <Button
-            android:id="@+id/btn_goToStatistic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:text="@string/jumpToStatistic"
-            app:layout_constraintBottom_toBottomOf="@+id/nextPlant_btn"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/nextPlant_btn"
-            app:layout_constraintTop_toTopOf="@+id/nextPlant_btn" />
+            <TextView
+                android:id="@+id/dataTenText_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toBottomOf="@+id/dataTen_lbl"
+                app:layout_constraintStart_toEndOf="@+id/dataTen_lbl"
+                app:layout_constraintTop_toTopOf="@+id/dataTen_lbl" />
 
-        <Button
-            android:id="@+id/nextPlant_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginBottom="32dp"
-            android:text="@string/next"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dataTen_lbl" />
+            <TextView
+                android:id="@+id/Notizen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:text="Denken Sie bei dieser Pflanze immer an die Eselsbrücke: bla bla bla bla bla bla"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dataTen_lbl" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/btn_goToStatistic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:text="@string/jumpToStatistic"
+                app:layout_constraintBottom_toBottomOf="@+id/nextPlant_btn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/nextPlant_btn"
+                app:layout_constraintTop_toTopOf="@+id/nextPlant_btn" />
+
+            <Button
+                android:id="@+id/nextPlant_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="32dp"
+                android:text="@string/next"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_goToStatistic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Notizen" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </FrameLayout>
