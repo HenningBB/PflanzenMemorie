@@ -3,7 +3,6 @@ package hkbb.de.pflanzenmemorie.DataSources;
 import android.os.AsyncTask;
 
 import androidx.navigation.NavController;
-import androidx.navigation.fragment.NavHostFragment;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -19,30 +18,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 import hkbb.de.pflanzenmemorie.DataViewModel;
+import hkbb.de.pflanzenmemorie.Models.Pflanze;
+import hkbb.de.pflanzenmemorie.Models.PflanzeStatistik;
 import hkbb.de.pflanzenmemorie.Models.Statistik;
 import hkbb.de.pflanzenmemorie.R;
-import hkbb.de.pflanzenmemorie.mainMenu;
 
-public class StatistikDataSource extends AsyncTask<String, Void, String> {
+public class PflanzeStatistikDataSource extends AsyncTask<String, Void, String> {
 
     public static final String POST_PARAM_KEYVALUE_SEPARATOR = "=";
     public static final String POST_PARAM_SEPARATOR = "&";
-    public static String DESTINATION_METHOD = "getStatList";
+    public static String DESTINATION_METHOD = "getStatistik";
     private URLConnection conn;
     private NavController nav;
     private DataViewModel model;
 
-    public StatistikDataSource(NavController nav, DataViewModel model) {
+    public PflanzeStatistikDataSource(NavController nav, DataViewModel model) {
         this.nav = nav;
         this.model = model;
     }
 
     protected String doInBackground(String... strings) {
         try {
-            if (strings[0].equals("getStatistik") || strings[0].isEmpty()) {
-                getStatisticConnection();
+            if (strings[0].equals("getStatDetails") || strings[0].isEmpty()) {
+                getPlantStatisticConnection();
             } else {
-                getStatisticDetailConnection();
+                getPlantStatisticDetailConnection();
             }
             return readResult();
         } catch (IOException e) {
@@ -52,15 +52,15 @@ public class StatistikDataSource extends AsyncTask<String, Void, String> {
 
     }
 
-    private void getStatisticConnection() throws IOException {
+    private void getPlantStatisticConnection() throws IOException {
         StringBuffer dataBuffer = new StringBuffer();
         dataBuffer.append(URLEncoder.encode("method", "UTF-8"));
         dataBuffer.append(POST_PARAM_KEYVALUE_SEPARATOR);
         dataBuffer.append(URLEncoder.encode(DESTINATION_METHOD, "UTF-8"));
         dataBuffer.append(POST_PARAM_SEPARATOR);
-        dataBuffer.append(URLEncoder.encode("IDaz", "UTF-8"));
+        dataBuffer.append(URLEncoder.encode("IDs", "UTF-8"));
         dataBuffer.append(POST_PARAM_KEYVALUE_SEPARATOR);
-        dataBuffer.append(URLEncoder.encode(model.getBenutzer().getValue().getId(), "UTF-8"));
+        dataBuffer.append(URLEncoder.encode(model.getSelectedStatistic().getValue().getId(), "UTF-8"));
         //Adresse der PHP Schnittstelle für die Verbindung zur MySQL Datenbank
         URL url = new URL("http://10.33.11.142/API/dbSchnittstelle.php");
         conn = url.openConnection();
@@ -70,7 +70,7 @@ public class StatistikDataSource extends AsyncTask<String, Void, String> {
         wr.flush();
     }
 
-    private void getStatisticDetailConnection() throws IOException {
+    private void getPlantStatisticDetailConnection() throws IOException {
 
     }
 
@@ -90,25 +90,25 @@ public class StatistikDataSource extends AsyncTask<String, Void, String> {
 
     protected void onPostExecute(String result) {
         try {
-            if (DESTINATION_METHOD.equals("getStatList")) {
-                if (model.getStatistikList().getValue() == null) {
-                    List<Statistik> statistikList = new ArrayList<>();
-                    JSONArray array = new JSONArray(result);
-                    for (int i = 0; i < array.length(); i++) {
-                        JSONObject object = array.getJSONObject(i);
-                        Statistik stat = new Statistik(object.getString("id_statistik"),
+            if (DESTINATION_METHOD.equals("getStatistik")) {
+//TODO: wait for API to have right results
+                List<PflanzeStatistik> statistikList = new ArrayList<>();
+                JSONArray array = new JSONArray(result);
+                JSONObject object = array.getJSONObject(0);
+                JSONArray plnts = new JSONArray(object.getString("pflanzen"));
+                for (int i = 0; i < array.length(); i++) {
+                    JSONObject objecto = plnts.getJSONObject(i);
+                    PflanzeStatistik stat = new PflanzeStatistik(/*object.getString("id_statistik"),
                                 object.getString("erstellt"),
                                 object.getString("fehlerquote"),
                                 object.getString("zeit"),
-                                object.getString("id_beste_pflanze"));
-                        statistikList.add(stat);
-                    }
-                    model.setStatistikList(statistikList);
-                } else {
+                                object.getString("id_beste_pflanze")*/);
+                    statistikList.add(stat);
 
+                    model.setSelectedPflanzeStatistik(statistikList);
                 }
 
-                nav.navigate(R.id.action_mainMenu_to_statistic_list);
+                //nav.navigate(R.id.action_mainMenu_to_statistic_list);
             }
         } catch (Exception e) {
             e.printStackTrace();

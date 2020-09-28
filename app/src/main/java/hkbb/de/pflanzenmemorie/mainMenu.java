@@ -77,7 +77,6 @@ public class mainMenu extends Fragment {
             @Override
             public void onClick(View view) {
                 new StatistikDataSource(nav,model).execute("getStatistik");
-
             }
         });
     }

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import hkbb.de.pflanzenmemorie.DataSources.PflanzeStatistikDataSource;
 import hkbb.de.pflanzenmemorie.Models.Statistik;
 
 
@@ -28,7 +30,8 @@ public class statistic extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        DataViewModel model = new ViewModelProvider(requireActivity()).get(DataViewModel.class);
+        final NavController nav = NavHostFragment.findNavController(statistic.this);
+        final DataViewModel model = new ViewModelProvider(requireActivity()).get(DataViewModel.class);
         Statistik statistik = model.getSelectedStatistic().getValue();
 
         TextView txt_fehler = view.findViewById(R.id.errorRateText_lbl);
@@ -48,6 +51,13 @@ public class statistic extends Fragment {
             }
         });
 
+        Button btnDetail = view.findViewById(R.id.statisticToEvaluation_btn);
+        btnDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new PflanzeStatistikDataSource(nav,model).execute("getStatDetails");
+            }
+        });
 
     }
 }

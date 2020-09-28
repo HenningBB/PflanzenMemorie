@@ -8,6 +8,7 @@ import java.util.List;
 
 import hkbb.de.pflanzenmemorie.Models.Benutzer;
 import hkbb.de.pflanzenmemorie.Models.Pflanze;
+import hkbb.de.pflanzenmemorie.Models.PflanzeStatistik;
 import hkbb.de.pflanzenmemorie.Models.Statistik;
 
 public class DataViewModel extends ViewModel {
@@ -20,6 +21,7 @@ public class DataViewModel extends ViewModel {
     private MutableLiveData<Benutzer> Benutzter = new MutableLiveData<>();
     private MutableLiveData<List<Statistik>> StatistikList = new MutableLiveData<>();
     private MutableLiveData<Statistik> SelectedStatistik = new MutableLiveData<>();
+    private MutableLiveData<List<PflanzeStatistik>> SelectedPflanzeStatistik = new MutableLiveData<>();
 
 
     public void setQuizPointer(Integer pointer) {
@@ -54,6 +56,10 @@ public class DataViewModel extends ViewModel {
         SelectedStatistik.setValue(statistik);
     }
 
+    public void setSelectedPflanzeStatistik(List<PflanzeStatistik> pflanzeStatistikList) {
+        SelectedPflanzeStatistik.setValue(pflanzeStatistikList);
+    }
+
 
     public LiveData<Integer> getQuizPointer() {
         return QuizPointer;
@@ -85,5 +91,9 @@ public class DataViewModel extends ViewModel {
 
     public LiveData<Statistik> getSelectedStatistic() {
         return SelectedStatistik;
+    }
+
+    public LiveData<List<PflanzeStatistik>> getSelectedPflanzeStatistik() {
+        return SelectedPflanzeStatistik;
     }
 }
