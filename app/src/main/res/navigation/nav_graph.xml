@@ -37,6 +37,12 @@
         <action
             android:id="@+id/action_quizPicture_to_quizQuestion"
             app:destination="@id/quizQuestion" />
+        <action
+            android:id="@+id/action_quizPicture_self"
+            app:destination="@id/quizPicture" />
+        <action
+            android:id="@+id/action_quizPicture_to_endStatistica"
+            app:destination="@id/endStatistica" />
     </fragment>
     <fragment
         android:id="@+id/quizQuestion"
