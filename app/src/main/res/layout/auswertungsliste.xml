@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
-        android:id="@+id/txt_kategorie"
+        android:id="@+id/txt_kategorieAuswertung"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -16,13 +16,13 @@
 
     <TextView
 
-        android:id="@+id/txt_antwort"
+        android:id="@+id/txt_antwortAuswertung"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        app:layout_constraintBottom_toBottomOf="@+id/txt_kategorie"
-        app:layout_constraintStart_toEndOf="@+id/txt_kategorie"
-        app:layout_constraintTop_toTopOf="@+id/txt_kategorie" />
+        app:layout_constraintBottom_toBottomOf="@+id/txt_kategorieAuswertung"
+        app:layout_constraintStart_toEndOf="@+id/txt_kategorieAuswertung"
+        app:layout_constraintTop_toTopOf="@+id/txt_kategorieAuswertung" />
 
     <TextView
 
@@ -30,8 +30,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        app:layout_constraintBottom_toBottomOf="@+id/txt_antwort"
-        app:layout_constraintStart_toEndOf="@+id/txt_antwort"
-        app:layout_constraintTop_toTopOf="@+id/txt_antwort" />
+        app:layout_constraintBottom_toBottomOf="@+id/txt_antwortAuswertung"
+        app:layout_constraintStart_toEndOf="@+id/txt_antwortAuswertung"
+        app:layout_constraintTop_toTopOf="@+id/txt_antwortAuswertung" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
