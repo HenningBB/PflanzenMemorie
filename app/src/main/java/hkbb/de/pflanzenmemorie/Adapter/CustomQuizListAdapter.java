@@ -45,7 +45,7 @@ public class CustomQuizListAdapter extends BaseAdapter {
             convertView = layoutInflater.inflate(R.layout.questionlistitem, null);
             holder = new ViewHolder();
             holder.frage = convertView.findViewById(R.id.txt_kategorie);
-            holder.antwort = convertView.findViewById(R.id.txt_antwortAuswertung);
+            holder.antwort = convertView.findViewById(R.id.txt_antwort);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
