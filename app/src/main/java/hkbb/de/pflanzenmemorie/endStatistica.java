@@ -4,12 +4,20 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ListView;
+
+import java.util.List;
+
+import hkbb.de.pflanzenmemorie.Adapter.CustomAuswertungsAdapter;
+import hkbb.de.pflanzenmemorie.Models.FrageAntwortKategorie;
+import hkbb.de.pflanzenmemorie.Models.Pflanze;
 
 public class endStatistica extends Fragment {
 
@@ -22,6 +30,20 @@ public class endStatistica extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        try {
+        DataViewModel model = new ViewModelProvider(requireActivity()).get(DataViewModel.class);
+
+        List<Pflanze> plants = model.getKasten().getValue();
+        List<FrageAntwortKategorie> antw = plants.get(model.getQuizPointer().getValue()).getFragen();
+
+        ListView list = view.findViewById(R.id.auswertungsList);
+        CustomAuswertungsAdapter adapter = new CustomAuswertungsAdapter(this.getContext(),antw);
+
+            list.setAdapter(adapter);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
         Button btnStatistik=view.findViewById(R.id.btn_goToStatistic);
         btnStatistik.setOnClickListener(new View.OnClickListener() {

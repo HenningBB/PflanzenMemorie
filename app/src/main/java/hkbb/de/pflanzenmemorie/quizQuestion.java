@@ -36,8 +36,10 @@ public class quizQuestion extends Fragment {
 
         final DataViewModel model = new ViewModelProvider(requireActivity()).get(DataViewModel.class);
         final ListView list = view.findViewById(R.id.qustionList);
+
         plantsen = model.getKasten().getValue();
         fragen = plantsen.get(model.getQuizPointer().getValue()).getFragen();
+
         final CustomQuizListAdapter adapter = new CustomQuizListAdapter(this.getContext(), fragen);
         list.setAdapter(adapter);
 
@@ -57,6 +59,7 @@ public class quizQuestion extends Fragment {
                 if (model.getQuizPointer().getValue() < model.getQuizSize().getValue()) {
                     NavHostFragment.findNavController(quizQuestion.this).navigate(R.id.action_quizQuestion_to_quizPicture);
                 } else {
+                    model.setQuizPointer(0);
                     NavHostFragment.findNavController(quizQuestion.this).navigate(R.id.action_quizQuestion_to_endStatistica);
                 }
             }
