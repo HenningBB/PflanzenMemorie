@@ -28,4 +28,7 @@
     <string name="quizDateLabel">Quiz vom:</string>
     <string name="quizFehlerQuoteLabel">Fehlerquote:</string>
     <string name="quizTimeLabel">Benötigte Zeit:</string>
+
+    <string name="auswertungAntwort">Angegeben:</string>
+    <string name="auswertungLoesung">Lösung:</string>
 </resources>
