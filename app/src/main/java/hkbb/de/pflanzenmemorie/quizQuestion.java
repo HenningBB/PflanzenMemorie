@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -59,7 +58,7 @@ public class quizQuestion extends Fragment {
                 if (model.getQuizPointer().getValue() < model.getQuizSize().getValue()) {
                     NavHostFragment.findNavController(quizQuestion.this).navigate(R.id.action_quizQuestion_to_quizPicture);
                 } else {
-                    model.setQuizPointer(0);
+                    model.setStatistikPointer(0);
                     NavHostFragment.findNavController(quizQuestion.this).navigate(R.id.action_quizQuestion_to_endStatistica);
                 }
             }

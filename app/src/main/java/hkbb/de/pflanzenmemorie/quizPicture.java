@@ -45,8 +45,8 @@ public class quizPicture extends Fragment {
                 model.setQuizPointer(model.getQuizPointer().getValue() + 1);
                 if (model.getQuizPointer().getValue() < model.getQuizSize().getValue()) {
                     NavHostFragment.findNavController(quizPicture.this).navigate(R.id.action_quizPicture_self);
-
                 } else {
+                    model.setStatistikPointer(0);
                     NavHostFragment.findNavController(quizPicture.this).navigate(R.id.action_quizPicture_to_endStatistica);
                 }
             }

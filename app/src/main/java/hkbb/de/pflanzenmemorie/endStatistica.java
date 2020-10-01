@@ -11,11 +11,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import java.util.List;
 
 import hkbb.de.pflanzenmemorie.Adapter.CustomAuswertungsAdapter;
+import hkbb.de.pflanzenmemorie.DataSources.PictureDataSource;
 import hkbb.de.pflanzenmemorie.Models.FrageAntwortKategorie;
 import hkbb.de.pflanzenmemorie.Models.Pflanze;
 
@@ -32,7 +34,7 @@ public class endStatistica extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         final DataViewModel model = new ViewModelProvider(requireActivity()).get(DataViewModel.class);
-
+        ImageView image = view.findViewById(R.id.imageView);
         try {
             List<Pflanze> plants = model.getSelectedPflanzeStatistik().getValue();
             List<FrageAntwortKategorie> antw = plants.get(model.getStatistikPointer().getValue()).getFragen();
@@ -41,6 +43,8 @@ public class endStatistica extends Fragment {
             CustomAuswertungsAdapter adapter = new CustomAuswertungsAdapter(this.getContext(), antw);
 
             list.setAdapter(adapter);
+
+            new PictureDataSource(image).execute("1");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -57,9 +61,9 @@ public class endStatistica extends Fragment {
         btnScroll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (model.getStatistikPointer().getValue() < model.getSelectedPflanzeStatistik().getValue().size()-1) {
+                if (model.getStatistikPointer().getValue() < model.getSelectedPflanzeStatistik().getValue().size() - 1) {
                     model.setStatistikPointer(model.getStatistikPointer().getValue() + 1);
-                }else {
+                } else {
                     model.setStatistikPointer(0);
                 }
 
