@@ -30,26 +30,40 @@ public class endStatistica extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        final DataViewModel model = new ViewModelProvider(requireActivity()).get(DataViewModel.class);
+
         try {
-        DataViewModel model = new ViewModelProvider(requireActivity()).get(DataViewModel.class);
+            List<Pflanze> plants = model.getSelectedPflanzeStatistik().getValue();
+            List<FrageAntwortKategorie> antw = plants.get(model.getStatistikPointer().getValue()).getFragen();
 
-        List<Pflanze> plants = model.getKasten().getValue();
-        List<FrageAntwortKategorie> antw = plants.get(model.getQuizPointer().getValue()).getFragen();
-
-        ListView list = view.findViewById(R.id.auswertungsList);
-        CustomAuswertungsAdapter adapter = new CustomAuswertungsAdapter(this.getContext(),antw);
+            ListView list = view.findViewById(R.id.auswertungsList);
+            CustomAuswertungsAdapter adapter = new CustomAuswertungsAdapter(this.getContext(), antw);
 
             list.setAdapter(adapter);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-
-        Button btnStatistik=view.findViewById(R.id.btn_goToStatistic);
+        Button btnStatistik = view.findViewById(R.id.btn_goToStatistic);
         btnStatistik.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(endStatistica.this).navigate(R.id.action_endStatistica_to_statistic);
+            }
+        });
+
+        Button btnScroll = view.findViewById(R.id.nextPlant_btn);
+        btnScroll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (model.getStatistikPointer().getValue() < model.getSelectedPflanzeStatistik().getValue().size()-1) {
+                    model.setStatistikPointer(model.getStatistikPointer().getValue() + 1);
+                }else {
+                    model.setStatistikPointer(0);
+                }
+
+                NavHostFragment.findNavController(endStatistica.this).navigate(R.id.action_endStatistica_self);
             }
         });
     }

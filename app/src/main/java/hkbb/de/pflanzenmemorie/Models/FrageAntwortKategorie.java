@@ -10,6 +10,12 @@ public class FrageAntwortKategorie {
         Antwort = antwort;
     }
 
+    public FrageAntwortKategorie(String name, String antwort,String eingabe) {
+        Name = name;
+        Antwort = antwort;
+        Eingabe=eingabe;
+    }
+
     public String getName() {
         return Name;
     }

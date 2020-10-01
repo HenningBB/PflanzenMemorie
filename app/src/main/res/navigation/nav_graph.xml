@@ -76,6 +76,9 @@
         <action
             android:id="@+id/action_endStatistica_to_statistic"
             app:destination="@id/statistic" />
+        <action
+            android:id="@+id/action_endStatistica_self"
+            app:destination="@id/endStatistica" />
     </fragment>
     <fragment
         android:id="@+id/statistic_list"

@@ -18,9 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import hkbb.de.pflanzenmemorie.DataViewModel;
+import hkbb.de.pflanzenmemorie.Models.FrageAntwortKategorie;
 import hkbb.de.pflanzenmemorie.Models.Pflanze;
-import hkbb.de.pflanzenmemorie.Models.PflanzeStatistik;
-import hkbb.de.pflanzenmemorie.Models.Statistik;
 import hkbb.de.pflanzenmemorie.R;
 
 public class PflanzeStatistikDataSource extends AsyncTask<String, Void, String> {
@@ -91,24 +90,27 @@ public class PflanzeStatistikDataSource extends AsyncTask<String, Void, String> 
     protected void onPostExecute(String result) {
         try {
             if (DESTINATION_METHOD.equals("getStatistik")) {
-//TODO: wait for API to have right results
-                List<PflanzeStatistik> statistikList = new ArrayList<>();
+                List<Pflanze> statistikList = new ArrayList<>();
                 JSONArray array = new JSONArray(result);
                 JSONObject object = array.getJSONObject(0);
                 JSONArray plnts = new JSONArray(object.getString("pflanzen"));
-                for (int i = 0; i < array.length(); i++) {
+                for (int i = 0; i < plnts.length(); i++) {
                     JSONObject objecto = plnts.getJSONObject(i);
-                    PflanzeStatistik stat = new PflanzeStatistik(/*object.getString("id_statistik"),
-                                object.getString("erstellt"),
-                                object.getString("fehlerquote"),
-                                object.getString("zeit"),
-                                object.getString("id_beste_pflanze")*/);
-                    statistikList.add(stat);
-
-                    model.setSelectedPflanzeStatistik(statistikList);
+                    JSONArray arrayy = objecto.getJSONArray("antworten");
+                    List<FrageAntwortKategorie> fr = new ArrayList<>();
+                    for (int j = 0; j < arrayy.length(); j++) {
+                        JSONObject stst = arrayy.getJSONObject(j);
+                        FrageAntwortKategorie stat = new FrageAntwortKategorie(stst.getString("kategorie"),
+                                stst.getString("korrekt"),
+                                stst.getString("eingabe"));
+                        fr.add(stat);
+                    }
+                    Pflanze pl = new Pflanze(fr);
+                    statistikList.add(pl);
                 }
-
-                //nav.navigate(R.id.action_mainMenu_to_statistic_list);
+                model.setSelectedPflanzeStatistik(statistikList);
+                model.setStatistikPointer(0);
+                nav.navigate(R.id.action_statistic_to_endStatistica);
             }
         } catch (Exception e) {
             e.printStackTrace();

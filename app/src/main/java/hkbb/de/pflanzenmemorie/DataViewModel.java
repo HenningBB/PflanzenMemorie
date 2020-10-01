@@ -8,11 +8,11 @@ import java.util.List;
 
 import hkbb.de.pflanzenmemorie.Models.Benutzer;
 import hkbb.de.pflanzenmemorie.Models.Pflanze;
-import hkbb.de.pflanzenmemorie.Models.PflanzeStatistik;
 import hkbb.de.pflanzenmemorie.Models.Statistik;
 
 public class DataViewModel extends ViewModel {
 
+    private MutableLiveData<Integer> StatistikPointer = new MutableLiveData<>();
     private MutableLiveData<Integer> QuizPointer = new MutableLiveData<>();
     private MutableLiveData<Integer> QuizSize = new MutableLiveData<>();
     private MutableLiveData<List<Integer>> Quiz = new MutableLiveData<>();
@@ -21,8 +21,12 @@ public class DataViewModel extends ViewModel {
     private MutableLiveData<Benutzer> Benutzter = new MutableLiveData<>();
     private MutableLiveData<List<Statistik>> StatistikList = new MutableLiveData<>();
     private MutableLiveData<Statistik> SelectedStatistik = new MutableLiveData<>();
-    private MutableLiveData<List<PflanzeStatistik>> SelectedPflanzeStatistik = new MutableLiveData<>();
+    private MutableLiveData<List<Pflanze>> SelectedStatistikEvaluation = new MutableLiveData<>();
 
+
+    public void setStatistikPointer(Integer pointer) {
+        StatistikPointer.setValue(pointer);
+    }
 
     public void setQuizPointer(Integer pointer) {
         QuizPointer.setValue(pointer);
@@ -56,10 +60,14 @@ public class DataViewModel extends ViewModel {
         SelectedStatistik.setValue(statistik);
     }
 
-    public void setSelectedPflanzeStatistik(List<PflanzeStatistik> pflanzeStatistikList) {
-        SelectedPflanzeStatistik.setValue(pflanzeStatistikList);
+    public void setSelectedPflanzeStatistik(List<Pflanze> pflanzeStatistikList) {
+        SelectedStatistikEvaluation.setValue(pflanzeStatistikList);
     }
 
+
+    public LiveData<Integer> getStatistikPointer() {
+        return StatistikPointer;
+    }
 
     public LiveData<Integer> getQuizPointer() {
         return QuizPointer;
@@ -93,7 +101,7 @@ public class DataViewModel extends ViewModel {
         return SelectedStatistik;
     }
 
-    public LiveData<List<PflanzeStatistik>> getSelectedPflanzeStatistik() {
-        return SelectedPflanzeStatistik;
+    public LiveData<List<Pflanze>> getSelectedPflanzeStatistik() {
+        return SelectedStatistikEvaluation;
     }
 }
