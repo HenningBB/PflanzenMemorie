@@ -1,11 +1,8 @@
 package hkbb.de.pflanzenmemorie.DataSources;
 
-import android.app.AlertDialog;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.Image;
 import android.os.AsyncTask;
-import android.util.Base64;
 import android.widget.ImageView;
 
 import androidx.navigation.NavController;
@@ -21,13 +18,6 @@ import java.io.OutputStreamWriter;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-
-import hkbb.de.pflanzenmemorie.DataViewModel;
-import hkbb.de.pflanzenmemorie.Models.Benutzer;
-import hkbb.de.pflanzenmemorie.R;
 
 public class PictureDataSource extends AsyncTask<String, Void, String> {
     public static final String POST_PARAM_KEYVALUE_SEPARATOR = "=";
