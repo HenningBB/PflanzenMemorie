@@ -12,15 +12,25 @@ import hkbb.de.pflanzenmemorie.Models.Statistik;
 
 public class DataViewModel extends ViewModel {
 
+    //auf welcher Pflanze die Statistik ist
     private MutableLiveData<Integer> StatistikPointer = new MutableLiveData<>();
+    //auf welcher Pflanze das Quiz ist
     private MutableLiveData<Integer> QuizPointer = new MutableLiveData<>();
+    //Größe des Quizes
     private MutableLiveData<Integer> QuizSize = new MutableLiveData<>();
+    //Liste mit IDs der Pflanzen im Quiz
     private MutableLiveData<List<Integer>> Quiz = new MutableLiveData<>();
+    //aktuell angezeigte Pflanze
     private MutableLiveData<Pflanze> Karte = new MutableLiveData<>();
+    //alle Pflanzen
     private MutableLiveData<List<Pflanze>> Kasten = new MutableLiveData<>();
+    //eingeloggter Benutzer
     private MutableLiveData<Benutzer> Benutzter = new MutableLiveData<>();
+    //Liste der Statistiken des Benutzers
     private MutableLiveData<List<Statistik>> StatistikList = new MutableLiveData<>();
+    //aktuell ausgewählte Statistik
     private MutableLiveData<Statistik> SelectedStatistik = new MutableLiveData<>();
+    //Liste mit Pflanzen der aktuell ausgewählten Statistik
     private MutableLiveData<List<Pflanze>> SelectedStatistikEvaluation = new MutableLiveData<>();
 
 
