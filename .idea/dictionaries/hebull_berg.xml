@@ -3,27 +3,57 @@
     <words>
       <w>abmelden</w>
       <w>adresse</w>
+      <w>aktuell</w>
+      <w>alle</w>
+      <w>angezeigte</w>
+      <w>antwort</w>
+      <w>ausgewählte</w>
+      <w>ausgewählten</w>
+      <w>benutzer</w>
+      <w>benutzers</w>
+      <w>benutzter</w>
       <w>bereitstehen</w>
       <w>beste</w>
+      <w>bild</w>
+      <w>bilder</w>
+      <w>blobject</w>
       <w>daten</w>
       <w>datenbank</w>
       <w>descriptionvoid</w>
       <w>diese</w>
+      <w>eingabe</w>
+      <w>eingeloggter</w>
+      <w>eingelogter</w>
       <w>erstellt</w>
+      <w>fehler</w>
       <w>fehlerquote</w>
+      <w>frage</w>
       <w>fragen</w>
       <w>gelesen</w>
+      <w>größe</w>
+      <w>karte</w>
+      <w>kasten</w>
+      <w>kategorie</w>
+      <w>kategories</w>
       <w>keyvalue</w>
       <w>lesen</w>
+      <w>liste</w>
+      <w>offiziel</w>
+      <w>overflowy</w>
       <w>pflanze</w>
+      <w>pflanzen</w>
       <w>plantsen</w>
       <w>poistion</w>
+      <w>quizes</w>
       <w>quizsize</w>
       <w>rückgabewerte</w>
       <w>schnittstelle</w>
       <w>solange</w>
       <w>statistik</w>
+      <w>statistiken</w>
+      <w>ubject</w>
       <w>verbindung</w>
+      <w>welcher</w>
       <w>werden</w>
       <w>zeit</w>
     </words>

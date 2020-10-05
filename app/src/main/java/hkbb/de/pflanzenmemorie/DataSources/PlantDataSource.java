@@ -84,7 +84,7 @@ public class PlantDataSource extends AsyncTask<String, Void, String> {
                 List<FrageAntwortKategorie> kategorieList = new ArrayList<>();
                 for (int j = 0; j < kategories.length(); j++) {
                     JSONObject ubject = kategories.getJSONObject(j);
-                    FrageAntwortKategorie kat = new FrageAntwortKategorie(ubject.getString("kategorie_name"), ubject.getString("antwort"));
+                    FrageAntwortKategorie kat = new FrageAntwortKategorie(ubject.getString("kategorie_id"),ubject.getString("kategorie_name"), ubject.getString("antwort"));
                     kategorieList.add(kat);
                 }
                 Pflanze pflanze = new Pflanze(kategorieList);

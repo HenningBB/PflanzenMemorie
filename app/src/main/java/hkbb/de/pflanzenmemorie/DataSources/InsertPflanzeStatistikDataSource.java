@@ -22,8 +22,7 @@ import hkbb.de.pflanzenmemorie.Models.FrageAntwortKategorie;
 import hkbb.de.pflanzenmemorie.Models.Pflanze;
 import hkbb.de.pflanzenmemorie.R;
 
-public class PflanzeStatistikDataSource extends AsyncTask<String, Void, String> {
-
+public class InsertPflanzeStatistikDataSource extends AsyncTask<String, Void, String> {
     public static final String POST_PARAM_KEYVALUE_SEPARATOR = "=";
     public static final String POST_PARAM_SEPARATOR = "&";
     public static String DESTINATION_METHOD = "getStatistik";
@@ -31,7 +30,7 @@ public class PflanzeStatistikDataSource extends AsyncTask<String, Void, String> 
     private NavController nav;
     private DataViewModel model;
 
-    public PflanzeStatistikDataSource(NavController nav, DataViewModel model) {
+    public InsertPflanzeStatistikDataSource(NavController nav, DataViewModel model) {
         this.nav = nav;
         this.model = model;
     }
@@ -102,8 +101,7 @@ public class PflanzeStatistikDataSource extends AsyncTask<String, Void, String> 
                         JSONObject stst = arrayy.getJSONObject(j);
                         FrageAntwortKategorie stat = new FrageAntwortKategorie(stst.getString("kategorie"),
                                 stst.getString("korrekt"),
-                                stst.getString("eingabe"),
-                                "over");
+                                stst.getString("eingabe"));
                         fr.add(stat);
                     }
                     Pflanze pl = new Pflanze(fr);
