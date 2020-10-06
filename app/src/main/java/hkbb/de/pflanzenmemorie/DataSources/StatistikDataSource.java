@@ -30,12 +30,14 @@ public class StatistikDataSource extends AsyncTask<String, Void, String> {
     public static String DESTINATION_METHOD = "getStatList";
     private URLConnection conn;
     private DataViewModel model;
+    private String mode;
 
     public StatistikDataSource(DataViewModel model) {
         this.model = model;
     }
 
     protected String doInBackground(String... strings) {
+        mode = strings[0];
         try {
             if (strings[0].equals("getStatistik") || strings[0].isEmpty()) {
                 getStatisticConnection();
@@ -84,24 +86,23 @@ public class StatistikDataSource extends AsyncTask<String, Void, String> {
 
     protected void onPostExecute(String result) {
         try {
-            if (DESTINATION_METHOD.equals("getStatList")) {
-                if (model.getStatistikList().getValue() == null) {
-                    List<Statistik> statistikList = new ArrayList<>();
-                    JSONArray array = new JSONArray(result);
-                    for (int i = 0; i < array.length(); i++) {
-                        JSONObject object = array.getJSONObject(i);
-                        Statistik stat = new Statistik(object.getString("id_statistik"),
-                                object.getString("erstellt"),
-                                object.getString("fehlerquote"),
-                                object.getString("zeit"),
-                                object.getString("id_beste_pflanze"));
-                        statistikList.add(stat);
-                    }
-                    model.setStatistikList(statistikList);
-                } else {
-
+            if (mode == "getStatistik") {
+                List<Statistik> statistikList = new ArrayList<>();
+                JSONArray array = new JSONArray(result);
+                for (int i = 0; i < array.length(); i++) {
+                    JSONObject object = array.getJSONObject(i);
+                    Statistik stat = new Statistik(object.getString("id_statistik"),
+                            object.getString("erstellt"),
+                            object.getString("fehlerquote"),
+                            object.getString("zeit"),
+                            object.getString("id_beste_pflanze"));
+                    statistikList.add(stat);
                 }
+                model.setStatistikList(statistikList);
+            } else {
+
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -99,6 +99,7 @@ public class InsertPflanzeStatistikDataSource extends AsyncTask<String, Void, St
     protected void onPostExecute(String Result) {
         try {
             new StatistikDataSource(model).execute("getStatistik");
+            //
             if (mode == "picture") {
                 nav.navigate(R.id.action_quizPicture_to_endStatistica);
             } else if (mode == "questions") {
