@@ -12,7 +12,7 @@
     <string name="mostErrors">Pflanze mit den meisten Fehlern:</string>
     <string name="errorRate">Fehlerquote:</string>
     <string name="averageTime">Durchschnitlliche Zeit:</string>
-    <string name="next">Weiter</string>
+    <string name="next">Nächste Pflanze</string>
     <string name="totalTime">Gesammt gebrauchte Zeit:</string>
     <string name="backToMenu">Zurück zum Menü</string>
     <string name="jumpToStatistic">Weiter zur Statistik</string>
