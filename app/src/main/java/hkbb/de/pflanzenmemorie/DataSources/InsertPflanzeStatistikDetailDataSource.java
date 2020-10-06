@@ -4,9 +4,6 @@ import android.os.AsyncTask;
 
 import androidx.navigation.NavController;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -14,24 +11,20 @@ import java.io.OutputStreamWriter;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.List;
 
 import hkbb.de.pflanzenmemorie.DataViewModel;
-import hkbb.de.pflanzenmemorie.Models.FrageAntwortKategorie;
-import hkbb.de.pflanzenmemorie.Models.Pflanze;
 import hkbb.de.pflanzenmemorie.R;
 
-public class InsertPflanzeStatistikDataSource extends AsyncTask<String, Void, String> {
+public class InsertPflanzeStatistikDetailDataSource extends AsyncTask<String, Void, String> {
     public static final String POST_PARAM_KEYVALUE_SEPARATOR = "=";
     public static final String POST_PARAM_SEPARATOR = "&";
-    public static String DESTINATION_METHOD = "createStatistik";
+    public static String DESTINATION_METHOD = "createStatEinzel";
     private URLConnection conn;
     private NavController nav;
     private DataViewModel model;
     private String mode;
 
-    public InsertPflanzeStatistikDataSource(NavController nav, DataViewModel model, String mode) {
+    public InsertPflanzeStatistikDetailDataSource(NavController nav, DataViewModel model, String mode) {
         this.nav = nav;
         this.model = model;
         this.mode = mode;
@@ -55,19 +48,19 @@ public class InsertPflanzeStatistikDataSource extends AsyncTask<String, Void, St
         dataBuffer.append(POST_PARAM_KEYVALUE_SEPARATOR);
         dataBuffer.append(URLEncoder.encode(DESTINATION_METHOD, "UTF-8"));
         dataBuffer.append(POST_PARAM_SEPARATOR);
-        dataBuffer.append(URLEncoder.encode("IDaz", "UTF-8"));
+        dataBuffer.append(URLEncoder.encode("IDs", "UTF-8"));
         dataBuffer.append(POST_PARAM_KEYVALUE_SEPARATOR);
         dataBuffer.append(URLEncoder.encode(model.getBenutzer().getValue().getId(), "UTF-8"));
         dataBuffer.append(POST_PARAM_SEPARATOR);
-        dataBuffer.append(URLEncoder.encode("FQuote", "UTF-8"));
+        dataBuffer.append(URLEncoder.encode("IDk", "UTF-8"));
         dataBuffer.append(POST_PARAM_KEYVALUE_SEPARATOR);
         dataBuffer.append(URLEncoder.encode(model.getSelectedStatistic().getValue().getFehlerquote(), "UTF-8"));
         dataBuffer.append(POST_PARAM_SEPARATOR);
-        dataBuffer.append(URLEncoder.encode("Zeit", "UTF-8"));
+        dataBuffer.append(URLEncoder.encode("IDp", "UTF-8"));
         dataBuffer.append(POST_PARAM_KEYVALUE_SEPARATOR);
         dataBuffer.append(URLEncoder.encode(model.getSelectedStatistic().getValue().getZeit(), "UTF-8"));
         dataBuffer.append(POST_PARAM_SEPARATOR);
-        dataBuffer.append(URLEncoder.encode("IDp", "UTF-8"));
+        dataBuffer.append(URLEncoder.encode("Eingabe", "UTF-8"));
         dataBuffer.append(POST_PARAM_KEYVALUE_SEPARATOR);
         dataBuffer.append(URLEncoder.encode(model.getSelectedStatistic().getValue().getSchlechtestePlfanze(), "UTF-8"));
         //Adresse der PHP Schnittstelle für die Verbindung zur MySQL Datenbank
@@ -98,7 +91,7 @@ public class InsertPflanzeStatistikDataSource extends AsyncTask<String, Void, St
 
     protected void onPostExecute(String Result) {
         try {
-            new StatistikDataSource(model).execute("getStatistik");
+            new StatistikDataSource(model).execute("getStatistikAfterInsert");
             if (mode == "picture") {
                 nav.navigate(R.id.action_quizPicture_to_endStatistica);
             } else if (mode == "questions") {

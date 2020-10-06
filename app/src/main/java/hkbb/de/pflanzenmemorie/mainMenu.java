@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
+import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,6 +43,9 @@ public class mainMenu extends Fragment {
             new PlantDataSource(builder, nav, model).execute();
         }
 
+        if (model.getStatistikList().getValue() == null) {
+            new StatistikDataSource(model).execute("getStatistik");
+        }
 
 
         Button btn_abmelden = view.findViewById(R.id.menuLogout_btn);
@@ -60,14 +64,16 @@ public class mainMenu extends Fragment {
                 //here we use the quizsize we get from the db
                 model.setQuizSize(2);
 
+
                 List<Pflanze> list = model.getKasten().getValue();
-                List<Integer> qui = new ArrayList<>();
+                List<Pflanze> liste = new ArrayList<>();
                 for (int i = 0; i < model.getQuizSize().getValue(); i++) {
-                    qui.add(i);
+                    liste.add(list.get(i));
                 }
                 model.setQuizPointer(0);
-                model.setQuiz(qui);
+                model.setSelectedPflanzeStatistik(liste);
 
+                model.settStart(SystemClock.elapsedRealtime());
                 NavHostFragment.findNavController(mainMenu.this).navigate(R.id.action_mainMenu_to_quizPicture);
             }
         });
@@ -76,7 +82,8 @@ public class mainMenu extends Fragment {
         toStatistic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new StatistikDataSource(nav,model).execute("getStatistik");
+
+                nav.navigate(R.id.action_mainMenu_to_statistic_list);
             }
         });
     }

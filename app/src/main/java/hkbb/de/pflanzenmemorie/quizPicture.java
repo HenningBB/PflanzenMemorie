@@ -7,11 +7,19 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
+import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import java.util.List;
+
+import hkbb.de.pflanzenmemorie.DataSources.InsertPflanzeStatistikDataSource;
+import hkbb.de.pflanzenmemorie.Models.FrageAntwortKategorie;
+import hkbb.de.pflanzenmemorie.Models.Pflanze;
+import hkbb.de.pflanzenmemorie.Models.Statistik;
 
 
 public class quizPicture extends Fragment {
@@ -47,7 +55,65 @@ public class quizPicture extends Fragment {
                     NavHostFragment.findNavController(quizPicture.this).navigate(R.id.action_quizPicture_self);
                 } else {
                     model.setStatistikPointer(0);
-                    NavHostFragment.findNavController(quizPicture.this).navigate(R.id.action_quizPicture_to_endStatistica);
+                    //Zeit
+                    long tEnd = SystemClock.elapsedRealtime();
+                    long tDelta = tEnd - model.gettStart().getValue();
+                    int elapsedSeconds = (int) (tDelta / 1000);
+
+
+                    int hour = elapsedSeconds / 3600;
+                    elapsedSeconds %= 3600;
+                    String timeH;
+                    if (hour < 10) {
+                        timeH = "0" + hour;
+                    } else {
+                        timeH = hour + "";
+                    }
+
+                    int minute = elapsedSeconds / 60;
+                    elapsedSeconds %= 60;
+                    String timeM;
+                    if (minute < 10) {
+                        timeM = "0" + minute;
+                    } else {
+                        timeM = minute + "";
+                    }
+
+                    int seconds = elapsedSeconds;
+                    String timeS = seconds + "";
+                    if (seconds < 10) {
+                        timeS = "0" + seconds;
+                    } else {
+                        timeS = seconds + "";
+                    }
+
+                    String time = timeH + ":" + timeM + ":" + timeS;
+
+                    //FehlerQuote
+                    int fehler = 0;
+                    int fragenZahl = 0;
+                    List<Pflanze> pflanzes = model.getSelectedPflanzeStatistik().getValue();//abgeschlossenes Quiz
+                    for (int i = 0; i < pflanzes.size(); i++) {
+                        List<FrageAntwortKategorie> fragen = pflanzes.get(i).getFragen();//Fragen und Antworten an Stelle i
+                        for (int j = 0; j < fragen.size(); j++) {
+                            fragenZahl++;
+                            if (!fragen.get(j).getAntwort().equals(fragen.get(j).getEingabe())) {
+                                fehler++;
+                            }
+                        }
+                    }
+                    String fehlerquote = fehler + "/" + fragenZahl;
+                    //Schlechteste Pflanze
+
+                    //Statistik zwischenspeichern
+                    Statistik statistik = new Statistik(fehlerquote, time, "2");
+                    model.setSelectedStatistik(statistik);
+                    List<Statistik> stat = model.getStatistikList().getValue();
+                    stat.add(statistik);
+                    model.setStatistikList(stat);
+
+                    //veränderungen hochladen
+                    new InsertPflanzeStatistikDataSource(NavHostFragment.findNavController(quizPicture.this),model,"picture").execute();
                 }
             }
         });

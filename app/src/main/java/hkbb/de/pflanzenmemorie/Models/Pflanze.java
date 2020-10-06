@@ -10,6 +10,10 @@ public class Pflanze {
         this.fragen = fragen;
     }
 
+    public void setFragen(List<FrageAntwortKategorie> fragen) {
+        this.fragen = fragen;
+    }
+
     public List<FrageAntwortKategorie> getFragen() {
         return fragen;
     }

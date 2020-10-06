@@ -12,6 +12,12 @@ import hkbb.de.pflanzenmemorie.Models.Statistik;
 
 public class DataViewModel extends ViewModel {
 
+    //Start des Quizes
+    private MutableLiveData<Long> tStart = new MutableLiveData<>();
+
+    //Ende des Quizes
+    //private MutableLiveData<Long> tEnd = new MutableLiveData<>();
+
     //auf welcher Pflanze die Statistik ist
     private MutableLiveData<Integer> StatistikPointer = new MutableLiveData<>();
 
@@ -20,9 +26,6 @@ public class DataViewModel extends ViewModel {
 
     //Größe des Quizes
     private MutableLiveData<Integer> QuizSize = new MutableLiveData<>();
-
-    //Liste mit IDs der Pflanzen im Quiz
-    private MutableLiveData<List<Integer>> Quiz = new MutableLiveData<>();
 
     //aktuell angezeigte Pflanze
     private MutableLiveData<Pflanze> Karte = new MutableLiveData<>();
@@ -43,6 +46,10 @@ public class DataViewModel extends ViewModel {
     private MutableLiveData<List<Pflanze>> SelectedStatistikEvaluation = new MutableLiveData<>();
 
 
+    public void settStart(Long time) {
+        tStart.setValue(time);
+    }
+
     public void setStatistikPointer(Integer pointer) {
         StatistikPointer.setValue(pointer);
     }
@@ -53,10 +60,6 @@ public class DataViewModel extends ViewModel {
 
     public void setQuizSize(Integer size) {
         QuizSize.setValue(size);
-    }
-
-    public void setQuiz(List<Integer> quiz) {
-        Quiz.setValue(quiz);
     }
 
     public void setKarte(Pflanze karte) {
@@ -84,6 +87,10 @@ public class DataViewModel extends ViewModel {
     }
 
 
+    public LiveData<Long> gettStart() {
+        return tStart;
+    }
+
     public LiveData<Integer> getStatistikPointer() {
         return StatistikPointer;
     }
@@ -94,10 +101,6 @@ public class DataViewModel extends ViewModel {
 
     public LiveData<Integer> getQuizSize() {
         return QuizSize;
-    }
-
-    public LiveData<List<Integer>> getQuiz() {
-        return Quiz;
     }
 
     public LiveData<Pflanze> getKarte() {

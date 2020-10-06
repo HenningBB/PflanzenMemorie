@@ -15,6 +15,12 @@ public class Statistik {
         this.schlechtestePlfanzeID = schlechtestePlfanze;
     }
 
+    public Statistik(String fehlerquote, String zeit, String schlechtestePlfanze) {
+        this.fehlerquote = fehlerquote;
+        this.zeit = zeit;
+        this.schlechtestePlfanzeID = schlechtestePlfanze;
+    }
+
     public String getId() {
         return id;
     }

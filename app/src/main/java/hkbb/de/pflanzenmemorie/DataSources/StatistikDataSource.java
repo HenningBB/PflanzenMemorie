@@ -29,11 +29,9 @@ public class StatistikDataSource extends AsyncTask<String, Void, String> {
     public static final String POST_PARAM_SEPARATOR = "&";
     public static String DESTINATION_METHOD = "getStatList";
     private URLConnection conn;
-    private NavController nav;
     private DataViewModel model;
 
-    public StatistikDataSource(NavController nav, DataViewModel model) {
-        this.nav = nav;
+    public StatistikDataSource(DataViewModel model) {
         this.model = model;
     }
 
@@ -42,7 +40,7 @@ public class StatistikDataSource extends AsyncTask<String, Void, String> {
             if (strings[0].equals("getStatistik") || strings[0].isEmpty()) {
                 getStatisticConnection();
             } else {
-                getStatisticDetailConnection();
+
             }
             return readResult();
         } catch (IOException e) {
@@ -68,10 +66,6 @@ public class StatistikDataSource extends AsyncTask<String, Void, String> {
         OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
         wr.write(dataBuffer.toString());
         wr.flush();
-    }
-
-    private void getStatisticDetailConnection() throws IOException {
-
     }
 
     private String readResult() throws IOException {
@@ -107,8 +101,6 @@ public class StatistikDataSource extends AsyncTask<String, Void, String> {
                 } else {
 
                 }
-
-                nav.navigate(R.id.action_mainMenu_to_statistic_list);
             }
         } catch (Exception e) {
             e.printStackTrace();

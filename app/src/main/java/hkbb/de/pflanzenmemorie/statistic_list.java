@@ -43,6 +43,7 @@ public class statistic_list extends Fragment {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         Button btnToMenu = view.findViewById(R.id.btn_StatisticListToMenu);
         btnToMenu.setOnClickListener(new View.OnClickListener() {
             @Override
