@@ -23,6 +23,7 @@ import hkbb.de.pflanzenmemorie.Models.Pflanze;
 
 public class endStatistica extends Fragment {
 
+    private List<Pflanze> plants;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -36,7 +37,7 @@ public class endStatistica extends Fragment {
         final DataViewModel model = new ViewModelProvider(requireActivity()).get(DataViewModel.class);
         ImageView image = view.findViewById(R.id.imageView);
         try {
-            List<Pflanze> plants = model.getSelectedPflanzeStatistik().getValue();
+            plants = model.getSelectedPflanzeStatistik().getValue();
             List<FrageAntwortKategorie> antw = plants.get(model.getStatistikPointer().getValue()).getFragen();
 
             ListView list = view.findViewById(R.id.auswertungsList);
@@ -53,6 +54,11 @@ public class endStatistica extends Fragment {
         btnStatistik.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                for(int i=0;i<plants.size();i++){
+                    for(int j=0;j<plants.get(i).getFragen().size();j++){
+                        plants.get(i).getFragen().get(j).setEingabe("");
+                    }
+                }
                 NavHostFragment.findNavController(endStatistica.this).navigate(R.id.action_endStatistica_to_statistic);
             }
         });

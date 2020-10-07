@@ -64,7 +64,7 @@ public class mainMenu extends Fragment {
                 //here we use the quizsize we get from the db
                 model.setQuizSize(2);
 
-
+                //creation of a quiz
                 List<Pflanze> list = model.getKasten().getValue();
                 List<Pflanze> liste = new ArrayList<>();
                 for (int i = 0; i < model.getQuizSize().getValue(); i++) {
