@@ -5,19 +5,28 @@ public class FrageAntwortKategorie {
     String Name;
     String Antwort;
     String Eingabe;
-    String Overflowy;
 
-    public FrageAntwortKategorie(String id,String name, String antwort) {
-        ID=id;
+    public FrageAntwortKategorie(String id, String name, String antwort, String eingabe) {
+        ID = id;
+        Name = name;
+        Antwort = antwort;
+        Eingabe = eingabe;
+    }
+
+    public FrageAntwortKategorie(int id, String name, String antwort, String eingabe) {
+        Name = name;
+        Antwort = antwort;
+        Eingabe = eingabe;
+    }
+
+    public FrageAntwortKategorie(String id, String name, String antwort) {
+        ID = id;
         Name = name;
         Antwort = antwort;
     }
 
-    public FrageAntwortKategorie(String name, String antwort, String eingabe,String over) {
-        Overflowy=over;
-        Name = name;
-        Antwort = antwort;
-        Eingabe = eingabe;
+    public String getID() {
+        return ID;
     }
 
     public String getName() {

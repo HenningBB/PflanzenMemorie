@@ -86,7 +86,8 @@ public class PictureDataSource extends AsyncTask<String, Void, String> {
             JSONObject blobject = object.getJSONObject(0);
             String blob = blobject.getString("bild");
             byte[] imageBytes = blob.getBytes();
-            Bitmap bm = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+            Bitmap bm;
+            bm = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
             image.setImageBitmap(bm);
         } catch (JSONException e) {
             e.printStackTrace();

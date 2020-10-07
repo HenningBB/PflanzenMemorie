@@ -87,7 +87,7 @@ public class PlantDataSource extends AsyncTask<String, Void, String> {
                     FrageAntwortKategorie kat = new FrageAntwortKategorie(ubject.getString("kategorie_id"),ubject.getString("kategorie_name"), ubject.getString("antwort"));
                     kategorieList.add(kat);
                 }
-                Pflanze pflanze = new Pflanze(kategorieList);
+                Pflanze pflanze = new Pflanze(kategorieList,object.getJSONObject(i).getString("id_pflanze"));
                 pflanzeList.add(pflanze);
             }
             model.setKasten(pflanzeList);

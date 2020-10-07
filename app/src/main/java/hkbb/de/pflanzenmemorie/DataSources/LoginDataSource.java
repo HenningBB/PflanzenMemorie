@@ -121,10 +121,10 @@ public class LoginDataSource extends AsyncTask<String, Void, String> {
             nav.navigate(R.id.action_login_to_mainMenu);
         } catch (JSONException e) {
             builder.setMessage("Benutzername oder Passwort ist falsch!");
+            final AlertDialog alertDialog = builder.create();
+            alertDialog.show();
             e.printStackTrace();
         }
-        final AlertDialog alertDialog = builder.create();
-        alertDialog.show();
     }
 
     //Hash-Funktion

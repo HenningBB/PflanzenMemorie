@@ -100,13 +100,13 @@ public class PflanzeStatistikDataSource extends AsyncTask<String, Void, String> 
                     List<FrageAntwortKategorie> fr = new ArrayList<>();
                     for (int j = 0; j < arrayy.length(); j++) {
                         JSONObject stst = arrayy.getJSONObject(j);
-                        FrageAntwortKategorie stat = new FrageAntwortKategorie(stst.getString("kategorie"),
+                        FrageAntwortKategorie stat = new FrageAntwortKategorie(1,
+                                stst.getString("kategorie"),
                                 stst.getString("korrekt"),
-                                stst.getString("eingabe"),
-                                "over");
+                                stst.getString("eingabe"));
                         fr.add(stat);
                     }
-                    Pflanze pl = new Pflanze(fr);
+                    Pflanze pl = new Pflanze(fr,objecto.getString("id_pflanze"));
                     statistikList.add(pl);
                 }
                 model.setSelectedPflanzeStatistik(statistikList);

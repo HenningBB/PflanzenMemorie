@@ -44,7 +44,7 @@ public class mainMenu extends Fragment {
         }
 
         if (model.getStatistikList().getValue() == null) {
-            new StatistikDataSource(model).execute("getStatistik");
+            new StatistikDataSource(model,nav,"getStatistik").execute();
         }
 
 
