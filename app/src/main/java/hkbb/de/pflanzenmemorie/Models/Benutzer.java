@@ -6,24 +6,24 @@ public class Benutzer {
     String vorname;
     String ausbildung;
     String fachrichtung;
-    String pruefung;
+    String idQuiz;
 
-    public Benutzer(String id, String name, String vorname, String ausbildung, String fachrichtung, String pruefung) {
+    public Benutzer(String id, String name, String vorname, String ausbildung, String fachrichtung, String idQuiz) {
         this.id = id;
         this.name = name;
         this.vorname = vorname;
         this.ausbildung = ausbildung;
         this.fachrichtung = fachrichtung;
-        this.pruefung = pruefung;
+        this.idQuiz = idQuiz;
     }
 
     public Benutzer(String id, String name, String vorname, String ausbildung, String fachrichtung) {
-        this.id =id;
+        this.id = id;
         this.name = name;
         this.vorname = vorname;
         this.ausbildung = ausbildung;
         this.fachrichtung = fachrichtung;
-        this.pruefung = "0";
+        this.idQuiz = "1";
     }
 
 
@@ -47,7 +47,7 @@ public class Benutzer {
         return fachrichtung;
     }
 
-    public String getPruefung() {
-        return pruefung;
+    public String getIdQuiz() {
+        return idQuiz;
     }
 }

@@ -115,8 +115,8 @@ public class LoginDataSource extends AsyncTask<String, Void, String> {
                     object.getJSONObject(0).getString("name"),
                     object.getJSONObject(0).getString("vorname"),
                     object.getJSONObject(0).getString("id_ausbildung"),
-                    object.getJSONObject(0).getString("id_fachrichtung")/*,
-                    object.getJSONObject(0).getString("pruefung")*/);
+                    object.getJSONObject(0).getString("id_fachrichtung"),
+                    object.getJSONObject(0).getString("id_quiz_art"));
             model.setBenutzer(benutzer);
             //builder.setMessage(benutzer.getId());
             nav.navigate(R.id.action_login_to_mainMenu);
