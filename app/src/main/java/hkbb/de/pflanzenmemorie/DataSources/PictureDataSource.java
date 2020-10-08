@@ -3,6 +3,7 @@ package hkbb.de.pflanzenmemorie.DataSources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.util.Base64;
 import android.widget.ImageView;
 
 import androidx.navigation.NavController;
@@ -88,7 +89,8 @@ public class PictureDataSource extends AsyncTask<String, Void, String> {
             String blob = blobject.getString("bild");
             byte[] imageBytes = blob.getBytes();
             Bitmap bm;
-            bm = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+            byte[] decodedString = Base64.decode(blob, Base64.DEFAULT);
+            bm = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
             image.setImageBitmap(bm);
         } catch (JSONException e) {
             e.printStackTrace();
