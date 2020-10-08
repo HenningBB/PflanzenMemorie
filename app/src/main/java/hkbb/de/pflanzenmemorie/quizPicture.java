@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import java.util.List;
 
 import hkbb.de.pflanzenmemorie.DataSources.InsertPflanzeStatistikDataSource;
+import hkbb.de.pflanzenmemorie.DataSources.PictureDataSource;
 import hkbb.de.pflanzenmemorie.Models.FrageAntwortKategorie;
 import hkbb.de.pflanzenmemorie.Models.Pflanze;
 import hkbb.de.pflanzenmemorie.Models.Statistik;
@@ -38,6 +39,8 @@ public class quizPicture extends Fragment {
         final DataViewModel model = new ViewModelProvider(requireActivity()).get(DataViewModel.class);
 
         ImageView image = view.findViewById(R.id.plantPicture_pic);
+        List<Pflanze> plants = model.getSelectedPflanzeStatistik().getValue();
+        new PictureDataSource(image).execute(plants.get(model.getQuizPointer().getValue()).getId());
 
         Button btn = view.findViewById(R.id.btn_picToQwest);
         btn.setOnClickListener(new View.OnClickListener() {
