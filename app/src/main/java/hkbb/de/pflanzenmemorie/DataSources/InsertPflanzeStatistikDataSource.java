@@ -63,7 +63,8 @@ public class InsertPflanzeStatistikDataSource extends AsyncTask<String, Void, St
         dataBuffer.append(POST_PARAM_KEYVALUE_SEPARATOR);
         dataBuffer.append(URLEncoder.encode(model.getSelectedStatistic().getValue().getSchlechtestePlfanze(), "UTF-8"));
         //Adresse der PHP Schnittstelle für die Verbindung zur MySQL Datenbank
-        URL url = new URL("http://10.33.11.142/API/dbSchnittstelle.php");
+        //URL url = new URL("http://10.33.11.142/API/dbSchnittstelle.php");
+        URL url = new URL("https://pflanzenbestimmung.000webhostapp.com/dbSchnittstelle.php");
         conn = url.openConnection();
         conn.setDoOutput(true);
         OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());

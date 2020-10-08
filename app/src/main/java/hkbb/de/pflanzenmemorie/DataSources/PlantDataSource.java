@@ -53,7 +53,8 @@ public class PlantDataSource extends AsyncTask<String, Void, String> {
         dataBuffer.append(URLEncoder.encode("method", "UTF-8"));
         dataBuffer.append(POST_PARAM_KEYVALUE_SEPARATOR);
         dataBuffer.append(URLEncoder.encode(DESTINATION_METHOD, "UTF-8"));
-        URL url = new URL("http://10.33.11.142/API/dbSchnittstelle.php"); //Steven, offiziel!
+        //URL url = new URL("http://10.33.11.142/API/dbSchnittstelle.php"); //Steven, offiziel!
+        URL url = new URL("https://pflanzenbestimmung.000webhostapp.com/dbSchnittstelle.php");
         conn = url.openConnection();
         conn.setDoOutput(true);
         OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
