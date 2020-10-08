@@ -102,6 +102,7 @@ public class StatistikDataSource extends AsyncTask<String, Void, String> {
             if (!mode.equals("getStatistik")) {
 
                 Statistik strut = statistikList.get(statistikList.size() - 1);
+                model.setSelectedStatistik(strut);
                 String IDstatistik = strut.getId();
                 List<Pflanze> plants = model.getSelectedPflanzeStatistik().getValue();
 

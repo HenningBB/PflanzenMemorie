@@ -4,9 +4,6 @@ import android.os.AsyncTask;
 
 import androidx.navigation.NavController;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -14,13 +11,8 @@ import java.io.OutputStreamWriter;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.List;
 
 import hkbb.de.pflanzenmemorie.DataViewModel;
-import hkbb.de.pflanzenmemorie.Models.FrageAntwortKategorie;
-import hkbb.de.pflanzenmemorie.Models.Pflanze;
-import hkbb.de.pflanzenmemorie.R;
 
 public class InsertPflanzeStatistikDataSource extends AsyncTask<String, Void, String> {
     public static final String POST_PARAM_KEYVALUE_SEPARATOR = "=";

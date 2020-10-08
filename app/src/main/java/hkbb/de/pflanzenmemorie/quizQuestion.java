@@ -1,5 +1,6 @@
 package hkbb.de.pflanzenmemorie;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.LayoutInflater;
@@ -57,71 +58,85 @@ public class quizQuestion extends Fragment {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                model.setQuizPointer(model.getQuizPointer().getValue() + 1);
-                if (model.getQuizPointer().getValue() < model.getQuizSize().getValue()) {
-                    NavHostFragment.findNavController(quizQuestion.this).navigate(R.id.action_quizQuestion_to_quizPicture);
-                } else {
-                    model.setStatistikPointer(0);
-
-                    //Zeit
-                    long tEnd = SystemClock.elapsedRealtime();
-                    long tDelta = tEnd - model.gettStart().getValue();
-                    int elapsedSeconds = (int) (tDelta / 1000);
-
-
-                    int hour = elapsedSeconds / 3600;
-                    elapsedSeconds %= 3600;
-                    String timeH;
-                    if (hour < 10) {
-                        timeH = "0" + hour;
-                    } else {
-                        timeH = hour + "";
+                boolean noText = false;
+                plantsen = model.getSelectedPflanzeStatistik().getValue();
+                fragen = plantsen.get(model.getQuizPointer().getValue()).getFragen();
+                for (int i = 0; i < fragen.size(); i++) {
+                    if (fragen.get(i).getEingabe().equals(null)) {
+                        noText = true;
+                        AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                        builder.setMessage("Fehler: Die Textfelder dürfen nicht leer sein!");
+                        AlertDialog alertDialog = builder.create();
+                        alertDialog.show();
+                        break;
                     }
-
-                    int minute = elapsedSeconds / 60;
-                    elapsedSeconds %= 60;
-                    String timeM;
-                    if (minute < 10) {
-                        timeM = "0" + minute;
+                }
+                if (!noText) {
+                    model.setQuizPointer(model.getQuizPointer().getValue() + 1);
+                    if (model.getQuizPointer().getValue() < model.getQuizSize().getValue()) {
+                        NavHostFragment.findNavController(quizQuestion.this).navigate(R.id.action_quizQuestion_to_quizPicture);
                     } else {
-                        timeM = minute + "";
-                    }
+                        model.setStatistikPointer(0);
 
-                    int seconds = elapsedSeconds;
-                    String timeS = seconds + "";
-                    if (seconds < 10) {
-                        timeS = "0" + seconds;
-                    } else {
-                        timeS = seconds + "";
-                    }
+                        //Zeit
+                        long tEnd = SystemClock.elapsedRealtime();
+                        long tDelta = tEnd - model.gettStart().getValue();
+                        int elapsedSeconds = (int) (tDelta / 1000);
 
-                    String time = timeH + ":" + timeM + ":" + timeS;
+                        int hour = elapsedSeconds / 3600;
+                        elapsedSeconds %= 3600;
+                        String timeH;
+                        if (hour < 10) {
+                            timeH = "0" + hour;
+                        } else {
+                            timeH = hour + "";
+                        }
 
-                    //FehlerQuote
-                    int fehler = 0;
-                    int fragenZahl = 0;
-                    List<Pflanze> pflanzes = model.getSelectedPflanzeStatistik().getValue();//abgeschlossenes Quiz
-                    for (int i = 0; i < pflanzes.size(); i++) {
-                        List<FrageAntwortKategorie> fragen = pflanzes.get(i).getFragen();//Fragen und Antworten an Stelle i
-                        for (int j = 0; j < fragen.size(); j++) {
-                            fragenZahl++;
-                            if (!fragen.get(j).getAntwort().equals(fragen.get(j).getEingabe())) {
-                                fehler++;
+                        int minute = elapsedSeconds / 60;
+                        elapsedSeconds %= 60;
+                        String timeM;
+                        if (minute < 10) {
+                            timeM = "0" + minute;
+                        } else {
+                            timeM = minute + "";
+                        }
+
+                        int seconds = elapsedSeconds;
+                        String timeS = seconds + "";
+                        if (seconds < 10) {
+                            timeS = "0" + seconds;
+                        } else {
+                            timeS = seconds + "";
+                        }
+
+                        String time = timeH + ":" + timeM + ":" + timeS;
+
+                        //FehlerQuote
+                        int fehler = 0;
+                        int fragenZahl = 0;
+                        List<Pflanze> pflanzes = model.getSelectedPflanzeStatistik().getValue();//abgeschlossenes Quiz
+                        for (int i = 0; i < pflanzes.size(); i++) {
+                            List<FrageAntwortKategorie> fragen = pflanzes.get(i).getFragen();//Fragen und Antworten an Stelle i
+                            for (int j = 0; j < fragen.size(); j++) {
+                                fragenZahl++;
+                                if (!fragen.get(j).getAntwort().equals(fragen.get(j).getEingabe())) {
+                                    fehler++;
+                                }
                             }
                         }
+                        String fehlerquote = fehler + "/" + fragenZahl;
+                        //Schlechteste Pflanze
+
+                        //Statistik zwischenspeichern
+                        Statistik statistik = new Statistik(fehlerquote, time, "2");
+                        model.setSelectedStatistik(statistik);
+                        List<Statistik> stat = model.getStatistikList().getValue();
+                        stat.add(statistik);
+                        model.setStatistikList(stat);
+
+                        //veränderungen hochladen
+                        new InsertPflanzeStatistikDataSource(NavHostFragment.findNavController(quizQuestion.this), model, "questions").execute();
                     }
-                    String fehlerquote = fehler + "/" + fragenZahl;
-                    //Schlechteste Pflanze
-
-                    //Statistik zwischenspeichern
-                    Statistik statistik = new Statistik(fehlerquote, time, "2");
-                    model.setSelectedStatistik(statistik);
-                    List<Statistik> stat = model.getStatistikList().getValue();
-                    stat.add(statistik);
-                    model.setStatistikList(stat);
-
-                    //veränderungen hochladen
-                    new InsertPflanzeStatistikDataSource(NavHostFragment.findNavController(quizQuestion.this), model, "questions").execute();
                 }
             }
         });
