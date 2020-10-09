@@ -62,7 +62,7 @@ public class quizQuestion extends Fragment {
                 plantsen = model.getSelectedPflanzeStatistik().getValue();
                 fragen = plantsen.get(model.getQuizPointer().getValue()).getFragen();
                 for (int i = 0; i < fragen.size(); i++) {
-                    if (fragen.get(i).getEingabe().equals(null)) {
+                    if (fragen.get(i).getEingabe() == null) {
                         noText = true;
                         AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
                         builder.setMessage("Fehler: Die Textfelder dürfen nicht leer sein!");
