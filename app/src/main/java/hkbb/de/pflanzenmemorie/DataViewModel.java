@@ -12,39 +12,46 @@ import hkbb.de.pflanzenmemorie.Models.Statistik;
 
 public class DataViewModel extends ViewModel {
 
+    //Datenbankverbindung
+    private final MutableLiveData<String> dbString = new MutableLiveData<>();
+
     //Start des Quizes
-    private MutableLiveData<Long> tStart = new MutableLiveData<>();
+    private final MutableLiveData<Long> tStart = new MutableLiveData<>();
 
     //Ende des Quizes
     //private MutableLiveData<Long> tEnd = new MutableLiveData<>();
 
     //auf welcher Pflanze die Statistik ist
-    private MutableLiveData<Integer> StatistikPointer = new MutableLiveData<>();
+    private final MutableLiveData<Integer> StatistikPointer = new MutableLiveData<>();
 
     //auf welcher Pflanze das Quiz ist
-    private MutableLiveData<Integer> QuizPointer = new MutableLiveData<>();
+    private final MutableLiveData<Integer> QuizPointer = new MutableLiveData<>();
 
     //Größe des Quizes
-    private MutableLiveData<Integer> QuizSize = new MutableLiveData<>();
+    private final MutableLiveData<Integer> QuizSize = new MutableLiveData<>();
 
     //aktuell angezeigte Pflanze
-    private MutableLiveData<Pflanze> Karte = new MutableLiveData<>();
+    private final MutableLiveData<Pflanze> Karte = new MutableLiveData<>();
 
     //alle Pflanzen
-    private MutableLiveData<List<Pflanze>> Kasten = new MutableLiveData<>();
+    private final MutableLiveData<List<Pflanze>> Kasten = new MutableLiveData<>();
 
     //eingelogter Benutzer
-    private MutableLiveData<Benutzer> Benutzter = new MutableLiveData<>();
+    private final MutableLiveData<Benutzer> Benutzter = new MutableLiveData<>();
 
     //Liste der Statistiken des Benutzers
-    private MutableLiveData<List<Statistik>> StatistikList = new MutableLiveData<>();
+    private final MutableLiveData<List<Statistik>> StatistikList = new MutableLiveData<>();
 
     //aktuell ausgewählte Statistik
-    private MutableLiveData<Statistik> SelectedStatistik = new MutableLiveData<>();
+    private final MutableLiveData<Statistik> SelectedStatistik = new MutableLiveData<>();
 
     //Liste mit Pflanzen der aktuell ausgewählten Statistik
-    private MutableLiveData<List<Pflanze>> SelectedStatistikEvaluation = new MutableLiveData<>();
+    private final MutableLiveData<List<Pflanze>> SelectedStatistikEvaluation = new MutableLiveData<>();
 
+
+    public void setDbString(String url) {
+        dbString.setValue(url);
+    }
 
     public void settStart(Long time) {
         tStart.setValue(time);
@@ -86,6 +93,10 @@ public class DataViewModel extends ViewModel {
         SelectedStatistikEvaluation.setValue(pflanzeStatistikList);
     }
 
+
+    public LiveData<String> getdbString() {
+        return dbString;
+    }
 
     public LiveData<Long> gettStart() {
         return tStart;

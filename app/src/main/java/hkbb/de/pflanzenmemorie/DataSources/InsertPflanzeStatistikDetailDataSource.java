@@ -22,10 +22,12 @@ public class InsertPflanzeStatistikDetailDataSource extends AsyncTask<String, Vo
     private URLConnection conn;
     private String mode;
     private NavController nav;
+    private DataViewModel model;
 
-    public InsertPflanzeStatistikDetailDataSource(NavController nav, String mode) {
+    public InsertPflanzeStatistikDetailDataSource(NavController nav, String mode, DataViewModel model) {
         this.nav = nav;
         this.mode = mode;
+        this.model = model;
     }
 
     protected String doInBackground(String... strings) {
@@ -61,8 +63,7 @@ public class InsertPflanzeStatistikDetailDataSource extends AsyncTask<String, Vo
         dataBuffer.append(POST_PARAM_KEYVALUE_SEPARATOR);
         dataBuffer.append(URLEncoder.encode(Eingabe, "UTF-8"));
         //Adresse der PHP Schnittstelle für die Verbindung zur MySQL Datenbank
-        //URL url = new URL("http://10.33.11.142/API/dbSchnittstelle.php");
-        URL url = new URL("https://pflanzenbestimmung.000webhostapp.com/dbSchnittstelle.php");
+        URL url = new URL(model.getdbString().getValue());
         conn = url.openConnection();
         conn.setDoOutput(true);
         OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());

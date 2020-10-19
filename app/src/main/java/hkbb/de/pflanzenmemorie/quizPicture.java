@@ -40,7 +40,7 @@ public class quizPicture extends Fragment {
 
         ImageView image = view.findViewById(R.id.plantPicture_pic);
         List<Pflanze> plants = model.getSelectedPflanzeStatistik().getValue();
-        new PictureDataSource(image).execute(plants.get(model.getQuizPointer().getValue()).getId());
+        new PictureDataSource(image, model).execute(plants.get(model.getQuizPointer().getValue()).getId());
 
         Button btn = view.findViewById(R.id.btn_picToQwest);
         btn.setOnClickListener(new View.OnClickListener() {

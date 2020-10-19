@@ -20,20 +20,20 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 
+import hkbb.de.pflanzenmemorie.DataViewModel;
+
 public class PictureDataSource extends AsyncTask<String, Void, String> {
     public static final String POST_PARAM_KEYVALUE_SEPARATOR = "=";
     public static final String POST_PARAM_SEPARATOR = "&";
     public static String DESTINATION_METHOD = "getPBilder";
     private URLConnection conn;
     private ImageView image;
+    private DataViewModel model;
 
 
-    public PictureDataSource(ImageView image) {
+    public PictureDataSource(ImageView image, DataViewModel model) {
         this.image = image;
-    }
-
-    public PictureDataSource(NavController nav, String method) {
-        DESTINATION_METHOD = method;
+        this.model = model;
     }
 
     @Override
@@ -59,8 +59,7 @@ public class PictureDataSource extends AsyncTask<String, Void, String> {
         dataBuffer.append(POST_PARAM_KEYVALUE_SEPARATOR);
         dataBuffer.append(URLEncoder.encode(user, "UTF-8"));
         //Adresse der PHP Schnittstelle für die Verbindung zur MySQL Datenbank
-        //URL url = new URL("http://10.33.11.142/API/dbSchnittstelle.php"); //Steven, offiziel!
-        URL url = new URL("https://pflanzenbestimmung.000webhostapp.com/dbSchnittstelle.php");
+        URL url = new URL(model.getdbString().getValue());
         conn = url.openConnection();
         conn.setDoOutput(true);
         OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());

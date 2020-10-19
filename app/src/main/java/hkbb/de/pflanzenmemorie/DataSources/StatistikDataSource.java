@@ -63,8 +63,7 @@ public class StatistikDataSource extends AsyncTask<String, Void, String> {
         dataBuffer.append(POST_PARAM_KEYVALUE_SEPARATOR);
         dataBuffer.append(URLEncoder.encode(model.getBenutzer().getValue().getId(), "UTF-8"));
         //Adresse der PHP Schnittstelle für die Verbindung zur MySQL Datenbank
-        //URL url = new URL("http://10.33.11.142/API/dbSchnittstelle.php");
-        URL url = new URL("https://pflanzenbestimmung.000webhostapp.com/dbSchnittstelle.php");
+        URL url = new URL(model.getdbString().getValue());
         conn = url.openConnection();
         conn.setDoOutput(true);
         OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
@@ -112,9 +111,9 @@ public class StatistikDataSource extends AsyncTask<String, Void, String> {
                     List<FrageAntwortKategorie> frags = plants.get(i).getFragen();
                     for (int j = 0; j < frags.size(); j++) {
                         if (i == plants.size() - 1 && j == frags.size() - 1) {
-                            new InsertPflanzeStatistikDetailDataSource(nav, mode).execute(IDstatistik, frags.get(j).getID(), IDPlant, frags.get(j).getEingabe());
+                            new InsertPflanzeStatistikDetailDataSource(nav, mode, model).execute(IDstatistik, frags.get(j).getID(), IDPlant, frags.get(j).getEingabe());
                         } else {
-                            new InsertPflanzeStatistikDetailDataSource(nav, "working").execute(IDstatistik, frags.get(j).getID(), IDPlant, frags.get(j).getEingabe());
+                            new InsertPflanzeStatistikDetailDataSource(nav, "working", model).execute(IDstatistik, frags.get(j).getID(), IDPlant, frags.get(j).getEingabe());
                         }
                     }
                 }

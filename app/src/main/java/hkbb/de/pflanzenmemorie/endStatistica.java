@@ -45,7 +45,7 @@ public class endStatistica extends Fragment {
 
             list.setAdapter(adapter);
 
-            new PictureDataSource(image).execute(plants.get(model.getStatistikPointer().getValue()).getId());
+            new PictureDataSource(image,model).execute(plants.get(model.getStatistikPointer().getValue()).getId());
             //new PictureDataSource(image).execute("3");
         } catch (Exception e) {
             e.printStackTrace();
