@@ -59,17 +59,21 @@ public class LoginDataSource extends AsyncTask<String, Void, String> {
     }
 
     private void OpenConnection(String user, String pw) throws IOException {
-        String salt = user.substring(user.length() - 3);
-        pw += salt;
-        MessageDigest digest = null;
         try {
-            digest = MessageDigest.getInstance("SHA-256");
-        } catch (NoSuchAlgorithmException e) {
+            String salt = user.substring(user.length() - 3);
+            pw += salt;
+            MessageDigest digest = null;
+            try {
+                digest = MessageDigest.getInstance("SHA-256");
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+            }
+            assert digest != null;
+            byte[] hash = digest.digest(pw.getBytes(StandardCharsets.UTF_8));
+            pw = bin2hex(hash);
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        assert digest != null;
-        byte[] hash = digest.digest(pw.getBytes(StandardCharsets.UTF_8));
-        pw = bin2hex(hash);
 
         StringBuffer dataBuffer = new StringBuffer();
         dataBuffer.append(URLEncoder.encode("method", "UTF-8"));
