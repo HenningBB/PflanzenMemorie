@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".startFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/txtTitel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/begrüßung"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnThema1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/thema1"
+            app:layout_constraintEnd_toEndOf="@+id/txtTitel"
+            app:layout_constraintStart_toStartOf="@+id/txtTitel"
+            app:layout_constraintTop_toBottomOf="@+id/txtTitel" />
+
+        <Button
+            android:id="@+id/btnThema2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/thema2"
+            app:layout_constraintEnd_toEndOf="@+id/btnThema1"
+            app:layout_constraintStart_toStartOf="@+id/btnThema1"
+            app:layout_constraintTop_toBottomOf="@+id/btnThema1" />
+
+        <Button
+            android:id="@+id/btnThema3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/thema3"
+            app:layout_constraintEnd_toEndOf="@+id/btnThema2"
+            app:layout_constraintStart_toStartOf="@+id/btnThema2"
+            app:layout_constraintTop_toBottomOf="@+id/btnThema2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

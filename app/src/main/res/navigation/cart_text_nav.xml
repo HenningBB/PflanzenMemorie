@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cart_text_nav"
+    app:startDestination="@id/txt_fragment_closed">
+
+    <fragment
+        android:id="@+id/txt_fragment_closed"
+        android:name="hkbb.de.pflanzenmemorie.txt_fragment_closed"
+        android:label="fragment_txt_closed"
+        tools:layout="@layout/fragment_txt_closed" >
+        <action
+            android:id="@+id/action_txt_fragment_closed_to_txt_fragment_opened"
+            app:destination="@id/txt_fragment_opened"
+            app:enterAnim="@anim/fragment_open_enter" />
+    </fragment>
+    <fragment
+        android:id="@+id/txt_fragment_opened"
+        android:name="hkbb.de.pflanzenmemorie.txt_fragment_opened"
+        android:label="fragment_txt_opened"
+        tools:layout="@layout/fragment_txt_opened" >
+        <action
+            android:id="@+id/action_txt_fragment_opened_to_txt_fragment_closed"
+            app:destination="@id/txt_fragment_closed"
+            app:enterAnim="@anim/fragment_open_enter" />
+    </fragment>
+</navigation>
