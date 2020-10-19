@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".statistic">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/statisticToEvaluation_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="32dp"
+            android:text="@string/evaluation"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_TatisticToStatisticlist"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fewestErrors_lbl" />
+
+        <TextView
+            android:id="@+id/errorRate_lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/errorRate"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/averageTime_lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/averageTime"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/errorRate_lbl" />
+
+        <TextView
+            android:id="@+id/fewestErrors_lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/mostErrors"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/averageTime_lbl" />
+
+        <TextView
+            android:id="@+id/errorRateText_lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="19dp"
+            app:layout_constraintBottom_toBottomOf="@+id/errorRate_lbl"
+            app:layout_constraintStart_toStartOf="@+id/timeText_lbl"
+            app:layout_constraintTop_toTopOf="@+id/errorRate_lbl" />
+
+        <TextView
+            android:id="@+id/timeText_lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/averageTime_lbl"
+            app:layout_constraintStart_toStartOf="@+id/plantText_lbl"
+            app:layout_constraintTop_toTopOf="@+id/averageTime_lbl" />
+
+        <TextView
+            android:id="@+id/plantText_lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            app:layout_constraintBottom_toBottomOf="@+id/fewestErrors_lbl"
+            app:layout_constraintStart_toEndOf="@+id/fewestErrors_lbl"
+            app:layout_constraintTop_toTopOf="@+id/fewestErrors_lbl" />
+
+        <Button
+            android:id="@+id/btn_TatisticToStatisticlist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/backToStatisticList"
+            app:layout_constraintBottom_toBottomOf="@+id/statisticToEvaluation_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/statisticToEvaluation_btn"
+            app:layout_constraintTop_toTopOf="@+id/statisticToEvaluation_btn" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

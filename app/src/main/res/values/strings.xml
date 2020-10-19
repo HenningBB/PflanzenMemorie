@@ -1,14 +1,34 @@
 <resources>
-    <string name="app_name">PflanzenMemorie</string>
+    <string name="app_name">Pflanzenbestimmung</string>
     <string name="begrüßung">Hallo Pflanzenliebhaber</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="thema1">Bäume</string>
-    <string name="thema2">Blumen</string>
-    <string name="thema3">Büsche</string>
-    <string name="closed">hier nix sehen</string>
-    <string name="opened_txt">hier txt zu sehen</string>
-    <string name="opened_pic">hier pic zu sehen</string>
-    <string name="pic_change">drehe bild um</string>
-    <string name="txt_change">drehe text um</string>
+    <string name="userName">Nutzername</string>
+    <string name="userPassword">Passwort</string>
+    <string name="Login">Anmelden</string>
+    <string name="actuallQuiz">Gesetztes Quiz starten</string>
+    <string name="ownQuiz">Zufälliges Quiz starten</string>
+    <string name="statistic">Statistik</string>
+    <string name="Logout">Abmelden</string>
+    <string name="back">Zurück</string>
+    <string name="mostErrors">Pflanze mit den meisten Fehlern:</string>
+    <string name="errorRate">Fehlerquote:</string>
+    <string name="averageTime">Durchschnitlliche Zeit:</string>
+    <string name="next">Nächste Pflanze</string>
+    <string name="totalTime">Gesammt gebrauchte Zeit:</string>
+    <string name="backToMenu">Zurück zum Menü</string>
+    <string name="jumpToStatistic">Weiter zur Statistik</string>
+    <string name="oneMinTimer">1 Minute pro Pflanze</string>
+    <string name="backToStatisticList">Statistikliste öffnen</string>
+    <string name="picture">Bild</string>
+    <string name="qwest">Fragen</string>
+    <string name="nextQuestion">Nächste Pflanze</string>
+    <string name="breaks">Pause</string>
+    <string name="evaluation">Zur Auswertung</string>
+
+
+    <string name="quizDateLabel">Quiz vom:</string>
+    <string name="quizFehlerQuoteLabel">Fehlerquote:</string>
+    <string name="quizTimeLabel">Benötigte Zeit:</string>
+
+    <string name="auswertungAntwort">Angegeben:</string>
+    <string name="auswertungLoesung">Lösung:</string>
 </resources>
