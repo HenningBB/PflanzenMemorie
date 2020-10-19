@@ -36,6 +36,9 @@ public class Login extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         final DataViewModel model = new ViewModelProvider(requireActivity()).get(DataViewModel.class);
+        if(model.getdbString().getValue()==null){
+            model.setDbString("https://pflanzenbestimmung.000webhostapp.com/dbSchnittstelle.php");
+        }
         Button btn_login = view.findViewById(R.id.login_btn);
         final EditText txt_username = view.findViewById(R.id.userName_txt);
         final EditText txt_pw = view.findViewById(R.id.userPassword_txt);
