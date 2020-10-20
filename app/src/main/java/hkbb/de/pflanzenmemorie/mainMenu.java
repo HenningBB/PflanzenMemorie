@@ -52,6 +52,7 @@ public class mainMenu extends Fragment {
         btn_abmelden.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                model.setStatistikList(null);
                 NavHostFragment.findNavController(mainMenu.this).navigate(R.id.action_mainMenu_to_login);
             }
         });
