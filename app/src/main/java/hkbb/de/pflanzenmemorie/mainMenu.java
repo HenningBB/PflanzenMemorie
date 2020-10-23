@@ -16,6 +16,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import hkbb.de.pflanzenmemorie.DataSources.PlantDataSource;
@@ -73,6 +75,7 @@ public class mainMenu extends Fragment {
                    int id= Integer.parseInt(ids.get(i));
                     liste.add(list.get(id));
                 }
+                Collections.shuffle(liste);
                 model.setQuizPointer(0);
                 model.setSelectedPflanzeStatistik(liste);
 
