@@ -30,6 +30,9 @@ public class DataViewModel extends ViewModel {
     //Größe des Quizes
     private final MutableLiveData<Integer> QuizSize = new MutableLiveData<>();
 
+    //Liste mit den Pflanzenids die im Quiz abgefragt werden
+    private final MutableLiveData<List<String>> Quiz = new MutableLiveData<>();
+
     //aktuell angezeigte Pflanze
     private final MutableLiveData<Pflanze> Karte = new MutableLiveData<>();
 
@@ -67,6 +70,10 @@ public class DataViewModel extends ViewModel {
 
     public void setQuizSize(Integer size) {
         QuizSize.setValue(size);
+    }
+
+    public void setQuiz(List<String> quiz) {
+        this.Quiz.setValue(quiz);
     }
 
     public void setKarte(Pflanze karte) {
@@ -112,6 +119,10 @@ public class DataViewModel extends ViewModel {
 
     public LiveData<Integer> getQuizSize() {
         return QuizSize;
+    }
+
+    public LiveData<List<String>> getQuiz() {
+        return Quiz;
     }
 
     public LiveData<Pflanze> getKarte() {

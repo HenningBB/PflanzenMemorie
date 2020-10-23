@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import hkbb.de.pflanzenmemorie.DataSources.PlantDataSource;
+import hkbb.de.pflanzenmemorie.DataSources.QuizDataSource;
 import hkbb.de.pflanzenmemorie.DataSources.StatistikDataSource;
 import hkbb.de.pflanzenmemorie.Models.Pflanze;
 
@@ -41,6 +42,7 @@ public class mainMenu extends Fragment {
 
         if (model.getKasten().getValue() == null) {
             new PlantDataSource(builder, nav, model).execute();
+            new QuizDataSource(builder,model).execute();
         }
 
         if (model.getStatistikList().getValue() == null) {
@@ -62,14 +64,14 @@ public class mainMenu extends Fragment {
             @Override
             public void onClick(View view) {
 
-                //here we use the quizsize we get from the db
-                model.setQuizSize(2);
-
                 //creation of a quiz
+                List<String> ids= model.getQuiz().getValue();
+                model.setQuizSize(ids.size());
                 List<Pflanze> list = model.getKasten().getValue();
                 List<Pflanze> liste = new ArrayList<>();
-                for (int i = 0; i < model.getQuizSize().getValue(); i++) {
-                    liste.add(list.get(i));
+                for (int i = 0; i < ids.size(); i++) {
+                   int id= Integer.parseInt(ids.get(i));
+                    liste.add(list.get(id));
                 }
                 model.setQuizPointer(0);
                 model.setSelectedPflanzeStatistik(liste);
