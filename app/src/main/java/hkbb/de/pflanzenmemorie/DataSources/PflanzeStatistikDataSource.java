@@ -106,7 +106,7 @@ public class PflanzeStatistikDataSource extends AsyncTask<String, Void, String> 
                                 stst.getString("eingabe"));
                         fr.add(stat);
                     }
-                    Pflanze pl = new Pflanze(fr,objecto.getString("id_pflanze"));
+                    Pflanze pl = new Pflanze(fr,objecto.getString("id_pflanze"),objecto.getString("notiz"));
                     statistikList.add(pl);
                 }
                 model.setSelectedPflanzeStatistik(statistikList);
